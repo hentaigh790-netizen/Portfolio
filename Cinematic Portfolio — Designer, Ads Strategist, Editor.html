@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<title>PrincePreet Singh — UI/UX Designer, Meta Ads Strategist, Video Editor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#0a0a0b;--fg:#f2efe9;--mut:rgba(242,239,233,.58);--line:rgba(242,239,233,.14);--ac:#ff4d1c;--d:"Instrument Serif",Georgia,serif;--s:Inter,system-ui,sans-serif;--m:"JetBrains Mono",ui-monospace,monospace;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--fg);font:400 1rem/1.6 var(--s);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body.lock{overflow:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+section{position:relative;padding:14vh 5vw}
+.lbl{font:12px/1 var(--m);letter-spacing:.14em;text-transform:uppercase;color:var(--mut);display:block;margin-bottom:2rem}
+.lbl b{color:var(--ac);font-weight:400}
+h2{font:400 clamp(2.4rem,6vw,5.5rem)/1 var(--d);letter-spacing:-.01em}
+em{font-style:italic;color:var(--ac)}
+.grain{position:fixed;inset:-50%;z-index:90;pointer-events:none;opacity:.07;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:gr .6s steps(6) infinite}
+@keyframes gr{0%{transform:translate(0,0)}25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-3%)}75%{transform:translate(-2%,-2%)}100%{transform:translate(3%,3%)}}
+.vig{position:fixed;inset:0;z-index:89;pointer-events:none;background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.55))}
+.hud{position:fixed;z-index:80;font:11px var(--m);letter-spacing:.12em;color:var(--mut);bottom:calc(16px + env(safe-area-inset-bottom,0px));pointer-events:none}
+.hud.l{left:5vw}.hud.r{right:5vw}
+.hud i{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--ac);margin-right:8px;animation:bl 1.2s infinite}
+@keyframes bl{50%{opacity:.2}}
+#pre{position:fixed;inset:0;z-index:500;display:grid;place-items:center;cursor:pointer}
+#pre .b{position:absolute;left:0;right:0;height:50.5%;background:#050505}
+#pre .b1{top:0}#pre .b2{bottom:0}
+#pre .num{position:relative;font:400 clamp(6rem,22vw,16rem)/1 var(--d);text-align:center}
+#pre small{display:block;font:12px var(--m);letter-spacing:.2em;color:var(--mut);text-align:center}
+#bar{position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--ac)}
+#nav{position:fixed;z-index:120;left:50%;top:calc(14px + env(safe-area-inset-top,0px));transform:translateX(-50%);display:flex;gap:6px;align-items:center;padding:8px 8px 8px 20px;border:1px solid var(--line);border-radius:99px;background:rgba(10,10,11,.6);backdrop-filter:blur(14px);font-size:14px}
+#nav a.lg{font-family:var(--d);font-size:20px;margin-right:12px}
+#nav .lk{padding:8px 14px;border-radius:99px;color:var(--mut);transition:.3s}
+#nav .lk:hover{color:var(--fg);background:rgba(255,255,255,.08)}
+#nav .mb{display:none;padding:8px 14px}
+#menu{position:fixed;inset:0;z-index:110;background:var(--ac);color:#0a0a0b;display:flex;flex-direction:column;justify-content:center;padding:0 8vw;clip-path:circle(0 at 50% 0);transition:clip-path .9s cubic-bezier(.76,0,.24,1)}
+#menu.open{clip-path:circle(150% at 50% 0)}
+#menu a{font:400 clamp(3rem,12vw,6rem)/1.1 var(--d)}
+@media(max-width:760px){#nav .lk{display:none}#nav .mb{display:block}}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:16vh}
+.h1{font:400 clamp(4rem,15vw,13rem)/.9 var(--d);letter-spacing:-.03em}
+.l{display:block;overflow:hidden;padding-bottom:.06em}.l>span{display:block}
+.roles{display:flex;align-items:center;gap:1rem;margin-top:3rem;font:13px var(--m);letter-spacing:.14em;text-transform:uppercase}
+.rw{height:1.6em;overflow:hidden;color:var(--ac)}.rs{list-style:none;padding:0}.rs li{height:1.6em;line-height:1.6em}
+.cue{position:absolute;right:5vw;bottom:12vh;display:flex;flex-direction:column;align-items:center;gap:12px;font:11px var(--m);letter-spacing:.2em;writing-mode:vertical-rl;color:var(--mut)}
+.cue::after{content:"";width:1px;height:70px;background:linear-gradient(var(--fg),transparent);animation:cue 1.8s infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.about{display:grid;grid-template-columns:1.5fr 1fr;gap:6vw;align-items:start}
+.scrub{font:400 clamp(1.7rem,3.6vw,3.2rem)/1.2 var(--d)}.w{opacity:.18}.rm .w{opacity:1}
+.pt{aspect-ratio:3/4;border-radius:6px;border:1px solid var(--line);position:relative;overflow:hidden;background:#0e0e10}
+.pt-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .7s cubic-bezier(.76,0,.24,1)}
+.pt:hover .pt-img{transform:scale(1.03)}
+.pt-cap{position:absolute;inset:auto 0 0 0;padding:16px 18px;background:linear-gradient(to top,rgba(10,10,11,.85),transparent);font:11px var(--m);color:var(--mut);letter-spacing:.14em;display:flex;justify-content:space-between;align-items:center;pointer-events:none}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;margin-top:8vh;border-top:1px solid var(--line);padding-top:2rem;grid-column:1/-1}
+.stats b{display:block;font:400 clamp(2.6rem,6vw,5rem)/1 var(--d)}.stats span{font:12px var(--m);color:var(--mut);letter-spacing:.1em;text-transform:uppercase}
+.act{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:center;border-top:1px solid var(--line)}
+.act h3{font:400 clamp(2.4rem,5vw,4.6rem)/1 var(--d);margin:.4em 0}
+.act p{color:var(--mut);max-width:34ch}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:1.5rem}.tags span{font:11px var(--m);border:1px solid var(--line);border-radius:99px;padding:6px 12px}
+.art{aspect-ratio:4/3;border:1px solid var(--line);border-radius:14px;padding:20px;background:rgba(255,255,255,.025);display:flex;flex-direction:column;gap:14px;overflow:hidden}
+.art svg{width:100%;height:100%}
+.dr{fill:transparent;stroke:var(--fg);stroke-width:1.5;stroke-dasharray:1;stroke-dashoffset:1}
+.kp{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.kp div{border:1px solid var(--line);border-radius:8px;padding:10px;font:11px var(--m);color:var(--mut)}.kp b{display:block;font:400 1.8rem var(--d);color:var(--fg)}
+.gr{flex:1;min-height:0}.gr path{fill:none;stroke:var(--ac);stroke-width:3;stroke-dasharray:1;stroke-dashoffset:1;stroke-linecap:round}
+.crs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;perspective:600px}.cr{height:46px;border-radius:6px;background:linear-gradient(135deg,var(--ac),#6b1a05)}.cr:nth-child(2){background:linear-gradient(135deg,#f2efe9,#8a857c)}.cr:nth-child(3){background:linear-gradient(135deg,#3a3a40,#111)}
+.tl{position:relative;flex:1;display:flex;flex-direction:column;gap:10px;justify-content:center}
+.tr{position:relative;height:42px;border-radius:6px;background:rgba(255,255,255,.04);overflow:hidden}
+.cp{position:absolute;top:4px;bottom:4px;border-radius:4px}
+.wv{display:flex;align-items:center;gap:3px;padding:0 6px}.wv i{flex:1;background:var(--fg);opacity:.5;border-radius:2px;animation:wv 1s ease-in-out infinite alternate}
+@keyframes wv{to{transform:scaleY(.25)}}
+.ph{position:absolute;top:-6px;bottom:-6px;left:0;width:2px;background:var(--ac);box-shadow:0 0 12px var(--ac)}
+.reel{padding:0;height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.rh{display:flex;justify-content:space-between;align-items:end;padding:0 5vw 4vh;flex-wrap:wrap;gap:1rem}
+.fl{display:flex;gap:6px}.fl button{position:relative;padding:8px 14px;font:12px var(--m);letter-spacing:.1em;color:var(--mut);text-transform:uppercase}
+.fl button::after{content:"";position:absolute;left:14px;right:14px;bottom:2px;height:1px;background:var(--ac);transform:scaleX(0);transition:transform .4s}
+.fl button.on{color:var(--fg)}.fl button.on::after{transform:scaleX(1)}
+.track{display:flex;gap:2vw;padding:0 5vw;width:max-content}
+.card{width:min(38vw,520px);min-width:300px;cursor:pointer}
+.vis{height:52vh;border-radius:8px;overflow:hidden;position:relative;background:#141416;border:1px solid var(--line);transition:transform .6s cubic-bezier(.76,0,.24,1)}
+.vis-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .8s cubic-bezier(.76,0,.24,1)}
+.card:hover .vis-img{transform:scale(1.06)}
+.card:hover .vis{transform:scale(1.02)}
+.vis-over{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.5) 0%,transparent 30%,transparent 55%,rgba(0,0,0,.85) 100%);pointer-events:none;transition:opacity .4s}
+.card:hover .vis-over{opacity:.85}
+.vis::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.18) 50%,transparent 60%);transform:translateX(-100%);transition:transform .9s;pointer-events:none}
+.card:hover .vis::after{transform:translateX(100%)}
+.vis span{position:absolute;left:16px;top:14px;font:11px var(--m);letter-spacing:.14em;background:rgba(10,10,11,.75);backdrop-filter:blur(8px);padding:4px 8px;border-radius:4px;border:1px solid rgba(255,255,255,.1);z-index:2}
+.vis-pill{position:absolute;left:16px;bottom:14px;font:11px var(--m);letter-spacing:.1em;text-transform:uppercase;color:var(--ac);background:rgba(10,10,11,.85);backdrop-filter:blur(8px);padding:4px 10px;border-radius:99px;border:1px solid rgba(255,77,28,.35);z-index:2}
+.card h4{font:400 1.9rem/1.1 var(--d);margin-top:14px}.card p{font:12px var(--m);color:var(--mut);letter-spacing:.08em}
+.case{position:fixed;inset:0;z-index:130;background:var(--bg);display:grid;place-items:center;padding:5vw;clip-path:circle(0 at 50% 50%);transition:clip-path .9s cubic-bezier(.76,0,.24,1)}
+.case.open{clip-path:circle(150% at 50% 50%)}
+.case>div{max-width:900px}.case h2{margin:1rem 0}.case .big{font:400 clamp(3rem,10vw,8rem)/1 var(--d);color:var(--ac);margin:1rem 0}.case button{margin-top:2rem;border:1px solid var(--line);border-radius:99px;padding:12px 22px}
+.pr{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:3vw;margin-top:8vh}
+.pl{position:absolute;top:10px;left:0;right:0;height:1px;background:var(--line)}.pl i{display:block;height:100%;background:var(--ac);transform:scaleX(0);transform-origin:left}
+.st{padding-top:48px;position:relative}.st::before{content:"";position:absolute;top:4px;left:0;width:13px;height:13px;border-radius:50%;background:var(--bg);border:1px solid var(--mut);transition:.4s}.st.on::before{background:var(--ac);border-color:var(--ac);box-shadow:0 0 0 6px #ff4d1c33}
+.st h3{font:400 2.2rem var(--d)}.st p{color:var(--mut);max-width:30ch}
+.mq{overflow:hidden;padding:10vh 0;border-block:1px solid var(--line);-webkit-mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.mt{display:flex;width:max-content;animation:mq 50s linear infinite}.mq:hover .mt{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+.q{width:min(80vw,460px);margin-right:4vw;flex:none}.q p{font:400 1.7rem/1.25 var(--d)}.q small{display:block;margin-top:1rem;font:11px var(--m);color:var(--mut);letter-spacing:.12em}
+.ct{min-height:100vh;display:flex;flex-direction:column;justify-content:center}
+.ct h2{font-size:clamp(3rem,10vw,9rem);line-height:.95}
+.cta{align-self:flex-start;margin:3rem 0;padding:22px 38px;border-radius:99px;background:var(--fg);color:#0a0a0b;font-weight:600;position:relative;overflow:hidden;isolation:isolate}
+.cta::before{content:"";position:absolute;inset:0;background:var(--ac);border-radius:50%;transform:scale(0);transform-origin:center bottom;transition:transform .6s cubic-bezier(.76,0,.24,1);z-index:-1}
+.cta:hover::before{transform:scale(2.2)}
+.lks{display:flex;gap:2rem;flex-wrap:wrap;font:400 1.8rem var(--d)}
+.roll{display:inline-block;overflow:hidden;height:1.3em;line-height:1.3}.roll span{display:block;position:relative;transition:transform .5s cubic-bezier(.76,0,.24,1)}.roll span::after{content:attr(data-t);position:absolute;left:0;top:100%;color:var(--ac)}.roll:hover span{transform:translateY(-100%)}
+.fin{text-align:center;padding:16vh 5vw 14vh;font:italic 400 clamp(4rem,14vw,12rem)/1 var(--d);color:var(--mut)}
+@media(max-width:900px){.about,.act{grid-template-columns:1fr}.pr{grid-template-columns:1fr}.reel{height:auto;padding:14vh 0}.track{flex-direction:column;width:auto}.card{width:100%}.vis{height:42vh}.stats{grid-template-columns:1fr}.pl{display:none}.st{padding-top:36px}.cue{display:none}}
+.rm .reel{height:auto;padding:14vh 0}.rm .reel>.wrap{overflow-x:auto}
+#formModal{position:fixed;inset:0;z-index:200;background:rgba(10,10,11,.88);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);display:grid;place-items:center;padding:20px;opacity:0;visibility:hidden;transition:opacity .35s ease,visibility .35s ease}
+#formModal.open{opacity:1;visibility:visible}
+.f-box{width:min(94vw,620px);max-height:90vh;overflow-y:auto;background:#111114;border:1px solid var(--line);border-radius:18px;padding:clamp(24px,4vw,36px);position:relative;transform:translateY(24px) scale(.98);transition:transform .35s cubic-bezier(.16,1,.3,1);box-shadow:0 30px 60px rgba(0,0,0,.7)}
+#formModal.open .f-box{transform:translateY(0) scale(1)}
+.f-close{position:absolute;top:20px;right:20px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--mut);font-size:18px;cursor:pointer;transition:.2s;background:transparent}
+.f-close:hover{color:var(--fg);border-color:var(--fg);background:rgba(255,255,255,.08)}
+.f-head h2{font:400 clamp(2rem,5vw,3.2rem)/1.1 var(--d);margin:.3rem 0 .5rem}
+.f-sub{font:13px var(--s);color:var(--mut);margin-bottom:1.6rem;line-height:1.5}
+.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:600px){.f-grid{grid-template-columns:1fr}}
+.f-grp{margin-bottom:1.1rem}
+.f-lbl{display:block;font:11px var(--m);color:var(--mut);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.45rem}
+.f-lbl b{color:var(--ac);font-weight:400}
+.f-inp,.f-sel,.f-txt{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:8px;padding:12px 14px;color:var(--fg);font:400 14px var(--s);outline:none;transition:border-color .2s,background .2s}
+.f-inp:focus,.f-sel:focus,.f-txt:focus{border-color:var(--ac);background:rgba(255,255,255,.07)}
+.f-txt{resize:vertical;min-height:85px;font-family:var(--s)}
+.f-sel{cursor:pointer}
+.f-sel option{background:#111114;color:var(--fg)}
+.f-pills{display:flex;flex-wrap:wrap;gap:8px}
+.f-chk{cursor:pointer}
+.f-chk input{display:none}
+.f-chk span{display:inline-block;padding:7px 14px;border-radius:99px;border:1px solid var(--line);font:12px var(--m);color:var(--mut);transition:.2s;user-select:none;background:rgba(255,255,255,.02)}
+.f-chk input:checked + span{background:var(--ac);color:#0a0a0b;border-color:var(--ac);font-weight:600}
+.f-btn{width:100%;margin-top:1.4rem;padding:16px 28px;border-radius:99px;background:var(--fg);color:#0a0a0b;font:600 13px var(--m);letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:background .3s,transform .2s;position:relative}
+.f-btn:hover{background:var(--ac);color:#fff;transform:translateY(-1px)}
+.f-wa-icon{width:18px;height:18px;fill:currentColor}
+.faq-sec{padding:14vh 5vw;border-top:1px solid var(--line)}
+.faq-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:6vw;align-items:start}
+@media(max-width:900px){.faq-grid{grid-template-columns:1fr}}
+.faq-list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line);transition:background .2s}
+.faq-q{width:100%;text-align:left;padding:24px 0;display:flex;justify-content:space-between;align-items:center;font:400 clamp(1.2rem,2.2vw,1.7rem)/1.3 var(--d);color:var(--fg);cursor:pointer;background:none;border:none}
+.faq-q:hover{color:var(--ac)}
+.faq-icon{font:16px var(--m);color:var(--mut);transition:transform .3s ease;margin-left:16px;display:inline-block}
+.faq-item.active .faq-icon{transform:rotate(45deg);color:var(--ac)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.16,1,.3,1),padding .3s ease;color:var(--mut);font:400 15px/1.7 var(--s)}
+.faq-item.active .faq-a{max-height:220px;padding-bottom:24px}
+.leg{margin-top:8vh;padding-top:2.5rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;font:12px var(--m);color:var(--mut);letter-spacing:.08em}
+.leg-lks{display:flex;gap:1.8rem}
+.leg-lks a{color:var(--mut);transition:color .2s;text-decoration:none}
+.leg-lks a:hover{color:var(--ac)}
+.ck-banner{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(140px);z-index:250;width:min(92vw,580px);background:rgba(17,17,20,.94);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:14px;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px;box-shadow:0 24px 48px rgba(0,0,0,.7);transition:transform .45s cubic-bezier(.16,1,.3,1),opacity .45s ease;opacity:0;pointer-events:none}
+.ck-banner.show{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:auto}
+.ck-txt{font:13px/1.5 var(--s);color:var(--mut)}
+.ck-txt a{color:var(--fg);text-decoration:underline;text-underline-offset:3px}
+.ck-txt a:hover{color:var(--ac)}
+.ck-btns{display:flex;gap:8px;flex-shrink:0}
+.ck-btn{padding:8px 18px;border-radius:99px;font:11px var(--m);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:.2s}
+.ck-acc{background:var(--fg);color:#0a0a0b;border:none;font-weight:600}
+.ck-acc:hover{background:var(--ac);color:#fff}
+.ck-dec{background:transparent;border:1px solid var(--line);color:var(--mut)}
+.ck-dec:hover{border-color:var(--fg);color:var(--fg)}
+@media(max-width:600px){.ck-banner{flex-direction:column;align-items:stretch;gap:14px}.ck-btns{justify-content:flex-end}}
+</style>
+</head>
+<body class="lock">
+<div class="grain"></div><div class="vig"></div>
+<div class="hud l"><i></i>REC · PRINCEPREET SINGH</div><div class="hud r">TC <span id="tc">00:00:00</span></div>
+
+<div id="pre"><div class="b b1"></div><div class="b b2"></div><div><div class="num" id="count">3</div><small>LOADING REEL · CLICK TO SKIP</small></div><div id="bar"></div></div>
+
+<nav id="nav"><a class="lg" href="#top">PrincePreet Singh</a><a class="lk" href="#about">About</a><a class="lk" href="#acts">Services</a><a class="lk" href="#work">Work</a><a class="lk" href="#process">Process</a><a class="lk" href="#faqs">FAQ</a><a class="lk" href="#contact">Contact</a><button class="mb" id="mb" data-cur="MENU">Menu</button></nav>
+<div id="menu"><a href="#about">About</a><a href="#acts">Services</a><a href="#work">Work</a><a href="#process">Process</a><a href="#faqs">FAQ</a><a href="#contact">Contact</a></div>
+
+<section class="hero" id="top">
+<span class="lbl"><b>●</b> Scene 01 — Opening titles</span>
+<h1 class="h1"><span class="l"><span>Design.</span></span><span class="l"><span>Drive.</span></span><span class="l"><span><em>Cut.</em></span></span></h1>
+<div class="roles"><span>PrincePreet Singh is a</span><div class="rw"><ul class="rs"><li>UI/UX Designer</li><li>Meta Ads Strategist</li><li>Video Editor</li><li>UI/UX Designer</li></ul></div></div>
+<div class="cue">SCROLL</div>
+</section>
+
+<section class="about" id="about">
+<div><span class="lbl"><b>●</b> Scene 02 — The director’s note</span>
+<p class="scrub" id="scrub">I design the experience, drive the audience, and cut the story. Three crafts, one obsession: making people stop scrolling and start caring. Whether it is a product screen, a performance campaign or a thirty-second edit, every frame earns its place.</p></div>
+<div class="pt"><img src="portrait.png" alt="PrincePreet Singh" class="pt-img"><div class="pt-cap"><span>PRINCEPREET SINGH</span></div></div>
+<div class="stats"><div><b data-v="30" data-s="+">0</b><span>Projects shipped</span></div><div><b data-v="50" data-s="+">0</b><span>Videos edited</span></div></div>
+</section>
+
+<div id="acts">
+<section class="act" id="a1"><div><span class="lbl"><b>Act I</b> — UI/UX</span><h3>I design the <em>experience.</em></h3><p>Research, wireframes and polished interfaces that turn confusion into conversion.</p><div class="tags"><span>Product design</span><span>Design systems</span><span>Prototyping</span></div></div>
+<div class="art"><svg viewBox="0 0 400 300"><g class="ui"><rect class="dr" data-f="#17171a" x="130" y="12" width="140" height="276" rx="18"/><rect class="dr" data-f="#f2efe9" x="146" y="34" width="108" height="14" rx="4"/><rect class="dr" data-f="#ff4d1c" x="146" y="60" width="108" height="74" rx="8"/><rect class="dr" data-f="#3a3a40" x="146" y="146" width="51" height="56" rx="8"/><rect class="dr" data-f="#3a3a40" x="203" y="146" width="51" height="56" rx="8"/><rect class="dr" data-f="#f2efe9" x="146" y="220" width="108" height="30" rx="15"/></g></svg></div></section>
+
+<section class="act" id="a2"><div><span class="lbl"><b>Act II</b> — Meta Ads</span><h3>I drive the <em>audience.</em></h3><p>Creative testing, funnel structure and scaling playbooks built around profit, not vanity metrics.</p><div class="tags"><span>Facebook &amp; Instagram</span><span>Creative strategy</span><span>Conversion tracking</span></div></div>
+<div class="art"><div class="kp"><div>ROAS<b data-v="4.8" data-s="x">0</b></div><div>CTR<b data-v="3.2" data-s="%">0</b></div><div>CPA<b data-v="6.4" data-p="$">0</b></div></div><svg class="gr" viewBox="0 0 400 140" preserveAspectRatio="none"><path pathLength="1" d="M0 125 C40 115 60 100 90 92 S150 98 180 72 S250 62 280 42 S350 28 400 10"/></svg><div class="crs"><div class="cr"></div><div class="cr"></div><div class="cr"></div></div></div></section>
+
+<section class="act" id="a3"><div><span class="lbl"><b>Act III</b> — Video</span><h3>I cut the <em>story.</em></h3><p>Reels, ads and brand films edited for rhythm, retention and the first three seconds.</p><div class="tags"><span>Short-form</span><span>Motion &amp; color</span><span>Sound design</span></div></div>
+<div class="art"><div class="tl" id="tl"><div class="tr"><div class="cp" style="left:2%;width:30%;background:#ff4d1c"></div><div class="cp" style="left:34%;width:24%;background:#f2efe9"></div><div class="cp" style="left:60%;width:36%;background:#6b1a05"></div></div><div class="tr"><div class="cp" style="left:10%;width:40%;background:#3a3a40"></div><div class="cp" style="left:52%;width:44%;background:#8a857c"></div></div><div class="tr wv" id="wv"></div><div class="ph" id="ph"></div></div></div></section>
+</div>
+
+<section class="reel" id="work">
+<div class="rh"><div><span class="lbl"><b>●</b> Scene 04 — The reel</span><h2>Selected <em>work</em></h2></div><div class="fl" id="fl"><button class="on" data-f="all">All</button><button data-f="ux">UX</button><button data-f="ads">Ads</button><button data-f="video">Video</button></div></div>
+<div class="wrap"><div class="track" id="track"></div></div>
+</section>
+<div class="case" id="case"><div><span class="lbl" id="cm"></span><h2 id="ct2"></h2><div class="big" id="cr"></div><div id="cimg-wrap" style="margin:1.5rem 0;border-radius:8px;overflow:hidden;max-height:42vh;border:1px solid var(--line)"><img id="cimg" src="" alt="Case Study Proof" style="width:100%;height:100%;object-fit:cover;display:block"></div><p style="color:var(--mut)">Verified deliverables, high-converting creative testing, and strategic architecture.</p><button id="cx" data-cur="CLOSE">Close ✕</button></div></div>
+
+<div id="formModal" aria-hidden="true" role="dialog" aria-modal="true">
+<div class="f-box">
+<button type="button" class="f-close" id="fClose" aria-label="Close modal">✕</button>
+<div class="f-head">
+<span class="lbl" style="margin-bottom:.5rem"><b>●</b> Scene 08 — Project Brief</span>
+<h2>Start a <em>project.</em></h2>
+<p class="f-sub">Fill in your details below. Once submitted, your inquiry will be formatted and forwarded directly to PrincePreet on WhatsApp (+91 9779718814).</p>
+</div>
+<form id="projectForm">
+<div class="f-grid">
+<div class="f-grp">
+<label class="f-lbl" for="fName">Your Name <b>*</b></label>
+<input class="f-inp" id="fName" name="name" type="text" placeholder="e.g. Rahul Sharma" required autocomplete="name" maxlength="100">
+</div>
+<div class="f-grp">
+<label class="f-lbl" for="fPhone">WhatsApp / Phone <b>*</b></label>
+<input class="f-inp" id="fPhone" name="phone" type="tel" placeholder="+91 98765 43210" required autocomplete="tel" maxlength="25">
+</div>
+</div>
+<div class="f-grid">
+<div class="f-grp">
+<label class="f-lbl" for="fEmail">Email Address</label>
+<input class="f-inp" id="fEmail" name="email" type="email" placeholder="rahul@example.com" autocomplete="email" maxlength="120">
+</div>
+<div class="f-grp">
+<label class="f-lbl" for="fBudget">Estimated Budget</label>
+<select class="f-sel" id="fBudget" name="budget">
+<option value="Flexible / Discuss on call">Flexible / Discuss on call</option>
+<option value="₹25,000 - ₹50,000">₹25,000 – ₹50,000</option>
+<option value="₹50,000 - ₹1,00,000">₹50,000 – ₹1,00,000</option>
+<option value="₹1,00,000+">₹1,00,000+</option>
+<option value="$500 - $1,500 (USD)">$500 – $1,500 (USD)</option>
+<option value="$1,500+ (USD)">$1,500+ (USD)</option>
+</select>
+</div>
+</div>
+<div class="f-grp">
+<label class="f-lbl">Services Required</label>
+<div class="f-pills">
+<label class="f-chk"><input type="checkbox" name="services" value="UI/UX Design" checked><span>UI/UX Design</span></label>
+<label class="f-chk"><input type="checkbox" name="services" value="Meta Ads Strategy"><span>Meta Ads Strategy</span></label>
+<label class="f-chk"><input type="checkbox" name="services" value="Video Editing"><span>Video Editing</span></label>
+<label class="f-chk"><input type="checkbox" name="services" value="Full Brand Growth"><span>Full Brand Growth</span></label>
+</div>
+</div>
+<div class="f-grp">
+<label class="f-lbl" for="fDetails">Project Details / Goals</label>
+<textarea class="f-txt" id="fDetails" name="details" placeholder="Briefly describe your project, timeline, deliverables, or brand links..." maxlength="2000"></textarea>
+</div>
+<button class="f-btn" type="submit">Send</button>
+<div style="text-align:center;margin-top:.65rem;font:11px var(--m);color:var(--mut);letter-spacing:.08em">Forwarded directly to WhatsApp (+91 9779718814)</div>
+</form>
+</div>
+</div>
+
+<section id="process"><span class="lbl"><b>●</b> Scene 05 — Process</span><h2>Pre-production, <em>production,</em> post.</h2>
+<div class="pr"><div class="pl"><i id="pli"></i></div><div class="st"><h3>01 Discover</h3><p>Audience, offer and goals. Research before pixels, strategy before spend.</p></div><div class="st"><h3>02 Build</h3><p>Interfaces, creatives and edits produced in tight, testable sprints.</p></div><div class="st"><h3>03 Refine</h3><p>Data, feedback and iteration until the numbers and the story both land.</p></div></div></section>
+
+<div class="mq"><div class="mt" id="mt"></div></div>
+
+<section class="faq-sec" id="faqs">
+<div class="faq-grid">
+<div>
+<span class="lbl"><b>●</b> Scene 06 — Inquiries &amp; Answers</span>
+<h2>Frequently asked <em>questions.</em></h2>
+<p style="color:var(--mut);margin-top:1.2rem;max-width:34ch">Everything you need to know about working together, project deliverables, timelines, and scaling your brand.</p>
+</div>
+<div class="faq-list">
+<div class="faq-item">
+<button class="faq-q" type="button">What services do you specialize in?<span class="faq-icon">+</span></button>
+<div class="faq-a"><p>I specialize across three interconnected crafts: modern UI/UX product design, high-converting Meta (Facebook &amp; Instagram) ads strategy, and retention-focused video editing. You can hire me for a standalone deliverable or complete end-to-end creative direction.</p></div>
+</div>
+<div class="faq-item">
+<button class="faq-q" type="button">What does the project collaboration process look like?<span class="faq-icon">+</span></button>
+<div class="faq-a"><p>Every project begins with a discovery session (via WhatsApp or call) to define objectives, audience, and technical specs. From there, we work in rapid, milestone-based sprints with frequent check-ins and testable drafts until the final launch.</p></div>
+</div>
+<div class="faq-item">
+<button class="faq-q" type="button">What are your typical turnaround times?<span class="faq-icon">+</span></button>
+<div class="faq-a"><p>Turnaround depends on project scope. Short-form video edits and Meta ad creatives are typically delivered within 2–5 days. Full mobile/web UI/UX designs or design systems generally take 1–3 weeks with structured milestone reviews.</p></div>
+</div>
+<div class="faq-item">
+<button class="faq-q" type="button">Do you offer revisions?<span class="faq-icon">+</span></button>
+<div class="faq-a"><p>Yes, all packages include dedicated revision rounds. We refine wireframes, color grading, cuts, and visual details until the outcome aligns precisely with your brand standards and performance goals.</p></div>
+</div>
+<div class="faq-item">
+<button class="faq-q" type="button">How do we get started?<span class="faq-icon">+</span></button>
+<div class="faq-a"><p>Simply click the "Start a project" button on this page or message directly on WhatsApp at +91 9779718814. Share your brief and goals, and I will get back to you with custom proposals and next steps.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="ct" id="contact"><span class="lbl"><b>●</b> Scene 07 — End credits</span><h2 id="bigt">Let’s make something <em>worth watching.</em></h2>
+<button class="cta mag" id="btnStartProject" type="button">Start a project →</button>
+<div class="lks"><a class="roll" href="mailto:i.veerdavinder@gmail.com"><span data-t="Email">Email</span></a><a class="roll" href="https://instagram.com/princeskill_hub" target="_blank" rel="noopener noreferrer"><span data-t="Instagram">Instagram</span></a><a class="roll" href="https://wa.me/919779718814" target="_blank" rel="noopener noreferrer"><span data-t="WhatsApp">WhatsApp</span></a></div>
+<div class="leg">
+<span>© 2026 PrincePreet Singh. All rights reserved.</span>
+<div class="leg-lks">
+<a href="terms.html">Terms &amp; Policy</a>
+<a href="cookies.html">Cookie Policy</a>
+</div>
+</div>
+</section>
+<div class="fin" id="fin">Prince</div>
+
+<div id="cookieBanner" class="ck-banner" role="region" aria-label="Cookie Consent">
+<div class="ck-txt">We use essential cookies to ensure optimal performance and understand how you interact with our portfolio. Read our <a href="cookies.html">Cookie Policy</a>.</div>
+<div class="ck-btns">
+<button class="ck-btn ck-acc" id="ckAccept" type="button">Accept</button>
+<button class="ck-btn ck-dec" id="ckDecline" type="button">Decline</button>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+const $=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelectorAll(s)];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const P=[
+{c:"ux",t:"Fintech Onboarding Redesign",m:"UI/UX · 2025",r:"+38% activation",img:"work_1_fintech.jpg"},
+{c:"ads",t:"D2C Skincare Scale-up",m:"Meta Ads · 2025",r:"5.1x ROAS",img:"work_2_skincare.jpg"},
+{c:"video",t:"Brand Launch Film",m:"Video · 2025",r:"1.2M views",img:"work_3_film.jpg"}];
+const tr=$("#track");
+P.forEach((p,i)=>{const a=document.createElement("article");a.className="card";a.dataset.c=p.c;a.dataset.cur="VIEW";a.innerHTML=`<div class="vis"><img src="${p.img}" alt="${p.t}" class="vis-img" onerror="this.style.display='none'"><div class="vis-over"></div><span>0${i+1}</span><div class="vis-pill">${p.r}</div></div><h4>${p.t}</h4><p>${p.m}</p>`;a.onclick=()=>{$("#cm").textContent=p.m;$("#ct2").textContent=p.t;$("#cr").textContent=p.r;$("#cimg").src=p.img;$("#case").classList.add("open")};tr.append(a)});
+$("#cx").onclick=()=>$("#case").classList.remove("open");
+const fModal=$("#formModal");
+const openFModal=()=>{fModal.classList.add("open");fModal.setAttribute("aria-hidden","false");document.body.classList.add("lock");setTimeout(()=>$("#fName").focus(),150)};
+const closeFModal=()=>{fModal.classList.remove("open");fModal.setAttribute("aria-hidden","true");document.body.classList.remove("lock")};
+$("#btnStartProject").onclick=e=>{e.preventDefault();openFModal()};
+$("#fClose").onclick=closeFModal;
+fModal.onclick=e=>{if(e.target===fModal)closeFModal()};
+addEventListener("keydown",e=>{if(e.key==="Escape"){closeFModal();$("#case").classList.remove("open")}});
+
+$("#projectForm").onsubmit=e=>{
+e.preventDefault();
+const f=e.target;
+const name=f.name.value.trim();
+const phone=f.phone.value.trim();
+const email=f.email.value.trim();
+const budget=f.budget.value;
+const details=f.details.value.trim();
+const checked=[...f.querySelectorAll('input[name="services"]:checked')].map(c=>c.value);
+const services=checked.length?checked.join(", "):"Not specified";
+
+let msg=`New Project Inquiry - PrincePreet Singh\n\n`+
+`Name: ${name}\n`+
+`Phone: ${phone}\n`;
+if(email) msg+=`Email: ${email}\n`;
+msg+=`Service Required: ${services}\n`+
+`Estimated Budget: ${budget}\n\n`;
+if(details){
+msg+=`Project Details:\n${details}\n\n`;
+}
+msg+=`Sent from portfolio website`;
+
+const waUrl=`https://wa.me/919779718814?text=${encodeURIComponent(msg)}`;
+window.open(waUrl,"_blank","noopener,noreferrer");
+closeFModal();
+f.reset();
+};
+
+// FAQ accordion
+$$(".faq-q").forEach(btn=>{
+btn.onclick=()=>{
+const item=btn.closest(".faq-item");
+const isOpen=item.classList.contains("active");
+$$(".faq-item").forEach(it=>it.classList.remove("active"));
+if(!isOpen)item.classList.add("active");
+};
+});
+
+// Cookie banner
+const ckBanner=$("#cookieBanner");
+if(ckBanner){
+if(!localStorage.getItem("cookie_consent")){
+setTimeout(()=>ckBanner.classList.add("show"),1200);
+}
+$("#ckAccept")?.addEventListener("click",()=>{
+localStorage.setItem("cookie_consent","accepted");
+ckBanner.classList.remove("show");
+});
+$("#ckDecline")?.addEventListener("click",()=>{
+localStorage.setItem("cookie_consent","declined");
+ckBanner.classList.remove("show");
+});
+}
+
+const Q=["“PrincePreet rebuilt our onboarding and our ads in one quarter. Revenue followed.”|FOUNDER, FINTECH STARTUP","“The best edit we’ve had. Retention jumped from second one.”|BRAND MANAGER, D2C","“Rare to find someone who thinks in design, data and story.”|CMO, SAAS COMPANY"];
+$("#mt").innerHTML=[...Q,...Q].map(q=>{const[a,b]=q.split("|");return`<div class="q"><p>${a}</p><small>${b}</small></div>`}).join("");
+$("#wv").innerHTML=Array.from({length:40},(_,i)=>`<i style="height:${20+Math.abs(Math.sin(i*1.7))*70}%;animation-delay:${(i%7)*.12}s"></i>`).join("");
+const sc=$("#scrub");sc.innerHTML=sc.textContent.split(" ").map(w=>`<span class="w">${w}</span>`).join(" ");
+$("#mb").onclick=()=>$("#menu").classList.toggle("open");
+$$("#menu a,#nav a[href^='#'],.lks a[href^='#']").forEach(a=>a.addEventListener("click",e=>{const h=a.getAttribute("href");if(h.length<2)return;const t=$(h);if(!t)return;e.preventDefault();$("#menu").classList.remove("open");window.lenis?lenis.scrollTo(t):t.scrollIntoView({behavior:"smooth"})}));
+$$(".stats b,.kp b").forEach(b=>{b.dataset.d=b.dataset.v;});
+const fmt=b=>(b.dataset.p||"")+b.dataset.n+(b.dataset.s||"");
+
+if(reduce){document.body.classList.remove("lock");document.documentElement.classList.add("rm");$("#pre").remove();$$(".stats b,.kp b").forEach(b=>{b.dataset.n=b.dataset.v;b.textContent=fmt(b)});$$(".dr").forEach(d=>{d.style.strokeDashoffset=0;d.style.fill=d.dataset.f});$(".gr path").style.strokeDashoffset=0}
+else{
+gsap.registerPlugin(ScrollTrigger);
+let lenis;if(window.Lenis){lenis=new Lenis({lerp:.09});window.lenis=lenis;lenis.on("scroll",ScrollTrigger.update);gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0);lenis.stop()}
+// magnets
+if(matchMedia("(hover:hover)").matches){
+$$(".mag").forEach(b=>{b.addEventListener("mousemove",e=>{const r=b.getBoundingClientRect();gsap.to(b,{x:(e.clientX-r.left-r.width/2)*.3,y:(e.clientY-r.top-r.height/2)*.3,duration:.3})});b.addEventListener("mouseleave",()=>gsap.to(b,{x:0,y:0,duration:.7,ease:"elastic.out(1,.4)"}))})}
+// nav hide + timecode
+let ly=0;addEventListener("scroll",()=>{const y=scrollY;gsap.to("#nav",{yPercent:y>ly&&y>300?-180:0,duration:.4,overwrite:true});ly=y});
+ScrollTrigger.create({start:0,end:"max",onUpdate:s=>{const f=Math.floor(s.progress*24*90),p=n=>String(n).padStart(2,"0");$("#tc").textContent=`${p(Math.floor(f/1440))}:${p(Math.floor(f/24)%60)}:${p(f%24)}`}});
+// preloader -> hero
+const E="power4.out";
+const tl=gsap.timeline({onComplete:()=>{document.body.classList.remove("lock");lenis&&lenis.start()}});
+["3","2","1"].forEach((v,i)=>tl.call(()=>{$("#count").textContent=v},null,i*.55));
+tl.to("#bar",{width:"100%",duration:1.65,ease:"none"},0).to("#count",{scale:.85,opacity:0,duration:.3},1.7)
+.to("#pre .b1",{yPercent:-100,duration:.9,ease:"power4.inOut"},2).to("#pre .b2",{yPercent:100,duration:.9,ease:"power4.inOut"},2).set("#pre",{display:"none"})
+.from(".h1 .l>span",{yPercent:115,duration:1.1,stagger:.1,ease:E},2.2).from(".roles,.hero .lbl",{opacity:0,y:20,duration:.8},2.7);
+$("#pre").onclick=()=>tl.timeScale(6);
+// roles
+gsap.timeline({repeat:-1}).to(".rs",{yPercent:-25,duration:.7,ease:"power3.inOut",delay:1.6}).to(".rs",{yPercent:-50,duration:.7,ease:"power3.inOut",delay:1.6}).to(".rs",{yPercent:-75,duration:.7,ease:"power3.inOut",delay:1.6}).set(".rs",{yPercent:0});
+// about
+gsap.to(".w",{opacity:1,stagger:.1,ease:"none",scrollTrigger:{trigger:"#scrub",start:"top 80%",end:"bottom 45%",scrub:true}});
+gsap.from(".pt",{clipPath:"inset(100% 0 0 0)",scale:1.12,duration:1.4,ease:E,scrollTrigger:{trigger:".pt",start:"top 85%"}});
+const count=b=>{const o={n:0},v=+b.dataset.v,d=v%1?1:0;gsap.to(o,{n:v,duration:2,ease:"power2.out",scrollTrigger:{trigger:b,start:"top 90%",once:true},onUpdate:()=>{b.dataset.n=o.n.toFixed(d);b.textContent=fmt(b)}})};
+$$(".stats b,.kp b").forEach(count);
+// acts
+gsap.timeline({scrollTrigger:{trigger:"#a1",start:"top 65%",end:"center 45%",scrub:1}}).to("#a1 .dr",{strokeDashoffset:0,stagger:.15,ease:"none"}).to("#a1 .dr",{fill:(i,el)=>el.dataset.f,stagger:.1});
+gsap.to(".gr path",{strokeDashoffset:0,ease:"none",scrollTrigger:{trigger:"#a2",start:"top 60%",end:"center 45%",scrub:1}});
+gsap.from(".cr",{rotationY:90,opacity:0,stagger:.15,transformOrigin:"left center",scrollTrigger:{trigger:"#a2",start:"top 45%",end:"center 40%",scrub:1}});
+gsap.from(".cp",{xPercent:-130,opacity:0,stagger:.12,ease:E,scrollTrigger:{trigger:"#a3",start:"top 60%",toggleActions:"play none none reverse"}});
+gsap.fromTo("#ph",{left:"0%"},{left:"100%",ease:"none",scrollTrigger:{trigger:"#a3",start:"top 60%",end:"bottom 60%",scrub:true}});
+// work: horizontal pin
+const mm=gsap.matchMedia();
+mm.add("(min-width:901px)",()=>{gsap.to(tr,{x:()=>-Math.max(0,tr.scrollWidth-innerWidth),ease:"none",scrollTrigger:{trigger:"#work",pin:true,scrub:1,start:"top top",end:()=>"+="+Math.max(300,tr.scrollWidth-innerWidth),invalidateOnRefresh:true}})});
+$$("#fl button").forEach(b=>b.onclick=()=>{$$("#fl button").forEach(x=>x.classList.toggle("on",x===b));const f=b.dataset.f;$$(".card").forEach(c=>c.style.display=f==="all"||c.dataset.c===f?"":"none");gsap.fromTo(".card:not([style*='none'])",{opacity:0,y:30},{opacity:1,y:0,stagger:.08,duration:.6,ease:E});ScrollTrigger.refresh()});
+// process
+gsap.to("#pli",{scaleX:1,ease:"none",scrollTrigger:{trigger:".pr",start:"top 70%",end:"bottom 60%",scrub:true}});
+$$(".st").forEach(s=>{ScrollTrigger.create({trigger:s,start:"top 70%",onEnter:()=>s.classList.add("on"),onLeaveBack:()=>s.classList.remove("on")});gsap.from(s,{y:40,opacity:0,duration:.9,ease:E,scrollTrigger:{trigger:s,start:"top 85%"}})});
+// contact
+gsap.from("#bigt",{scale:.9,opacity:0,duration:1.2,ease:E,transformOrigin:"left center",scrollTrigger:{trigger:"#bigt",start:"top 85%"}});
+gsap.from("#fin",{opacity:0,y:40,ease:"none",scrollTrigger:{trigger:"#fin",start:"top 100%",end:"bottom 90%",scrub:true}});
+window.addEventListener("load",()=>ScrollTrigger.refresh());
+}
+</script>
+</body>
+</html>

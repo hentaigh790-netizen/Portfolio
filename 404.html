@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<title>404 — Lost in the Cut | PrincePreet Singh</title>
+<meta name="description" content="404 Page Not Found — PrincePreet Singh Portfolio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#0a0a0b;
+--fg:#f2efe9;
+--mut:#8a8780;
+--line:rgba(242,239,233,.14);
+--ac:#ff4d1c;
+--d:'Instrument Serif',Georgia,serif;
+--s:'Inter',-apple-system,sans-serif;
+--m:'JetBrains Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg);color:var(--fg);font-family:var(--s);-webkit-font-smoothing:antialiased;height:100%}
+body{min-height:100%;display:flex;flex-direction:column;justify-content:space-between;background:var(--bg);overflow-x:hidden;position:relative}
+a{color:inherit;text-decoration:none}
+
+.grain{position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.04;background:url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)"/></svg>')}
+.vig{position:fixed;inset:0;pointer-events:none;z-index:98;background:radial-gradient(circle at center,transparent 40%,rgba(0,0,0,.8) 100%)}
+
+.hud{position:fixed;font:11px var(--m);color:var(--mut);letter-spacing:.14em;z-index:60;pointer-events:none;text-transform:uppercase}
+.hud.tl{top:24px;left:28px;display:flex;align-items:center;gap:10px}
+.hud.tl i{width:8px;height:8px;border-radius:50%;background:var(--ac);box-shadow:0 0 10px var(--ac);animation:blink 1.4s infinite}
+.hud.tr{top:24px;right:28px}
+.hud.bl{bottom:24px;left:28px}
+.hud.br{bottom:24px;right:28px}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+
+.frame-bounds{position:fixed;inset:20px;pointer-events:none;border:1px solid rgba(242,239,233,.06);z-index:50}
+.frame-bounds::before,.frame-bounds::after{content:"";position:absolute;width:16px;height:16px;border:2px solid var(--line)}
+.frame-bounds::before{top:-1px;left:-1px;border-right:none;border-bottom:none}
+.frame-bounds::after{bottom:-1px;right:-1px;border-left:none;border-top:none}
+
+#nav{display:flex;justify-content:space-between;align-items:center;padding:24px 5vw;border-bottom:1px solid var(--line);background:rgba(10,10,11,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);position:relative;z-index:70}
+.nav-logo{font:400 1.25rem var(--d);letter-spacing:.02em;transition:color .2s}
+.nav-logo:hover{color:var(--ac)}
+.nav-links{display:flex;align-items:center;gap:2rem;font:12px var(--m);letter-spacing:.08em;text-transform:uppercase}
+.nav-links a{color:var(--mut);transition:color .2s}
+.nav-links a:hover{color:var(--fg)}
+
+.stage{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:12vh 6vw;position:relative;z-index:65}
+
+.slate{font:12px var(--m);color:var(--mut);letter-spacing:.2em;text-transform:uppercase;display:inline-flex;align-items:center;gap:12px;margin-bottom:2rem;padding:8px 16px;border:1px solid var(--line);border-radius:99px;background:rgba(255,255,255,.02)}
+.slate b{color:var(--ac);font-weight:400}
+
+.num-404{font:italic 400 clamp(6rem,22vw,18rem)/.85 var(--d);letter-spacing:-.04em;color:var(--line);user-select:none;position:relative;display:inline-block;margin-bottom:1rem}
+.num-404::before{content:"404";position:absolute;inset:0;color:transparent;-webkit-text-stroke:1px rgba(242,239,233,.3);z-index:-1}
+
+h1{font:400 clamp(2.4rem,6vw,4.5rem)/1.1 var(--d);margin-bottom:1.2rem}
+h1 em{font-style:italic;color:var(--ac)}
+
+.sub{font:400 16px/1.7 var(--s);color:var(--mut);max-width:54ch;margin:0 auto 2.8rem}
+
+.actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.btn{padding:16px 32px;border-radius:99px;font:600 13px var(--m);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:.25s;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-primary{background:var(--fg);color:#0a0a0b}
+.btn-primary:hover{background:var(--ac);color:#fff;transform:translateY(-2px)}
+.btn-outline{background:transparent;border:1px solid var(--line);color:var(--fg)}
+.btn-outline:hover{border-color:var(--fg);background:rgba(255,255,255,.05)}
+
+footer{border-top:1px solid var(--line);padding:24px 5vw;position:relative;z-index:70}
+.footer-wrap{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;font:11px var(--m);color:var(--mut);letter-spacing:.08em}
+.footer-links{display:flex;gap:1.6rem}
+.footer-links a{color:var(--mut);transition:color .2s}
+.footer-links a:hover{color:var(--ac)}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="vig"></div>
+<div class="frame-bounds"></div>
+
+<div class="hud tl"><i></i>REC · PRINCEPREET SINGH // 404</div>
+<div class="hud tr">TC <span id="tc">00:04:04:12</span></div>
+<div class="hud bl">FPS 24 · ISO 800</div>
+<div class="hud br">BAT 98% · SHUTTER 180°</div>
+
+<nav id="nav">
+<a class="nav-logo" href="index.html">PrincePreet Singh</a>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="index.html#work">Work</a>
+<a href="index.html#faqs">FAQ</a>
+<a href="index.html#contact">Contact</a>
+</div>
+</nav>
+
+<main class="stage">
+<div class="slate"><b>●</b> SCENE 404 · TAKE 01 · OFF-AIR</div>
+<div class="num-404">404</div>
+<h1>Lost in the <em>cut.</em></h1>
+<p class="sub">The frame, reel, or scene you are looking for has been trimmed from the timeline, moved to another roll, or does not exist.</p>
+<div class="actions">
+<a class="btn btn-primary" href="index.html">Return to Reel</a>
+<a class="btn btn-outline" href="index.html#contact">Start a Project</a>
+</div>
+</main>
+
+<footer>
+<div class="footer-wrap">
+<span>© 2026 PrincePreet Singh. All rights reserved.</span>
+<div class="footer-links">
+<a href="index.html">Home</a>
+<a href="terms.html">Terms &amp; Policy</a>
+<a href="cookies.html">Cookie Policy</a>
+</div>
+</div>
+</footer>
+
+<script>
+let frame = 12;
+setInterval(() => {
+frame = (frame + 1) % 24;
+const p = n => String(n).padStart(2, '0');
+document.getElementById('tc').textContent = `00:04:04:${p(frame)}`;
+}, 1000 / 24);
+</script>
+</body>
+</html>

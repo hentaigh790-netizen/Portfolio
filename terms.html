@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<title>Terms &amp; Privacy Policy — PrincePreet Singh</title>
+<meta name="description" content="Terms of Service and Privacy Policy for PrincePreet Singh — UI/UX Designer, Meta Ads Strategist, and Video Editor.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#0a0a0b;
+--fg:#f2efe9;
+--mut:#8a8780;
+--line:rgba(242,239,233,.14);
+--ac:#ff4d1c;
+--d:'Instrument Serif',Georgia,serif;
+--s:'Inter',-apple-system,sans-serif;
+--m:'JetBrains Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--bg);color:var(--fg);font-family:var(--s);-webkit-font-smoothing:antialiased}
+body{min-height:100vh;overflow-x:hidden;position:relative;background:var(--bg)}
+a{color:inherit;text-decoration:none}
+
+.grain{position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.04;background:url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)"/></svg>')}
+.vig{position:fixed;inset:0;pointer-events:none;z-index:98;background:radial-gradient(circle at center,transparent 50%,rgba(0,0,0,.75) 100%)}
+
+.hud{position:fixed;font:11px var(--m);color:var(--mut);letter-spacing:.14em;z-index:60;pointer-events:none;text-transform:uppercase}
+.hud.l{top:24px;left:28px;display:flex;align-items:center;gap:10px}
+.hud.l i{width:8px;height:8px;border-radius:50%;background:var(--ac);box-shadow:0 0 10px var(--ac);animation:blink 1.8s infinite}
+.hud.r{top:24px;right:28px}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+
+#nav{position:sticky;top:0;z-index:70;display:flex;justify-content:space-between;align-items:center;padding:22px 5vw;border-bottom:1px solid var(--line);background:rgba(10,10,11,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.nav-logo{font:400 1.25rem var(--d);letter-spacing:.02em;transition:color .2s}
+.nav-logo:hover{color:var(--ac)}
+.nav-links{display:flex;align-items:center;gap:2rem;font:12px var(--m);letter-spacing:.08em;text-transform:uppercase}
+.nav-links a{color:var(--mut);transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--fg)}
+
+.page-header{padding:14vh 5vw 8vh;border-bottom:1px solid var(--line);max-width:1200px;margin:0 auto}
+.lbl{font:11px var(--m);color:var(--mut);letter-spacing:.18em;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;margin-bottom:1.5rem}
+.lbl b{color:var(--ac);font-weight:400}
+h1{font:400 clamp(2.8rem,7vw,5.5rem)/1 var(--d);letter-spacing:-.01em;margin-bottom:1.2rem}
+h1 em{font-style:italic;color:var(--ac)}
+.lead{font:400 17px/1.7 var(--s);color:var(--mut);max-width:68ch}
+.updated{font:12px var(--m);color:var(--mut);margin-top:2rem;letter-spacing:.08em}
+
+.content-wrap{max-width:1200px;margin:0 auto;padding:8vh 5vw 14vh;display:grid;grid-template-columns:260px 1fr;gap:6vw;align-items:start}
+@media(max-width:880px){.content-wrap{grid-template-columns:1fr}}
+
+.toc{position:sticky;top:100px;display:flex;flex-direction:column;gap:12px;font:12px var(--m);letter-spacing:.08em;text-transform:uppercase;padding-bottom:20px;border-bottom:1px solid var(--line)}
+@media(min-width:881px){.toc{border-bottom:none}}
+.toc-title{font:11px var(--m);color:var(--mut);margin-bottom:8px}
+.toc a{color:var(--mut);padding:4px 0;transition:color .2s,transform .2s;display:block}
+.toc a:hover{color:var(--ac);transform:translateX(4px)}
+
+.doc{display:flex;flex-direction:column;gap:5rem}
+.doc-section{scroll-margin-top:120px;border-top:1px solid var(--line);padding-top:2.5rem}
+.doc-section:first-child{border-top:none;padding-top:0}
+.doc-section h2{font:400 clamp(1.8rem,3vw,2.4rem)/1.2 var(--d);margin-bottom:1.2rem;color:var(--fg)}
+.doc-section h3{font:500 16px var(--s);color:var(--fg);margin:1.8rem 0 .6rem}
+.doc-section p{font:400 15px/1.8 var(--s);color:var(--mut);margin-bottom:1rem}
+.doc-section ul{list-style:none;margin:1rem 0;padding:0;display:flex;flex-direction:column;gap:.6rem}
+.doc-section ul li{font:400 15px/1.7 var(--s);color:var(--mut);padding-left:1.5rem;position:relative}
+.doc-section ul li::before{content:"—";position:absolute;left:0;color:var(--ac)}
+.doc-box{background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:12px;padding:24px;margin:1.6rem 0}
+.doc-box p{margin-bottom:0}
+
+.contact-card{background:#111114;border:1px solid var(--line);border-radius:14px;padding:28px;margin-top:2rem}
+.contact-card h4{font:400 1.6rem var(--d);margin-bottom:.6rem}
+.contact-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:1.2rem}
+.contact-btn{display:inline-block;padding:10px 20px;border-radius:99px;border:1px solid var(--line);font:12px var(--m);letter-spacing:.08em;color:var(--fg);transition:.2s}
+.contact-btn:hover{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+footer{border-top:1px solid var(--line);padding:4rem 5vw;background:var(--bg)}
+.footer-wrap{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;font:12px var(--m);color:var(--mut);letter-spacing:.08em}
+.footer-links{display:flex;gap:1.8rem}
+.footer-links a{color:var(--mut);transition:color .2s}
+.footer-links a:hover{color:var(--ac)}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="vig"></div>
+<div class="hud l"><i></i>REC · PRINCEPREET SINGH // LEGAL</div>
+<div class="hud r">SYS · PRIVACY &amp; TERMS</div>
+
+<nav id="nav">
+<a class="nav-logo" href="index.html">PrincePreet Singh</a>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="index.html#work">Work</a>
+<a href="index.html#faqs">FAQ</a>
+<a href="index.html#contact">Contact</a>
+</div>
+</nav>
+
+<header class="page-header">
+<span class="lbl"><b>●</b> Legal Governance &amp; Data Rights</span>
+<h1>Terms of Service &amp; <em>Privacy Policy.</em></h1>
+<p class="lead">Transparency is paramount. This document outlines the operational terms, intellectual property ownership, and client privacy commitments that govern all creative, technical, and strategic services provided by PrincePreet Singh.</p>
+<div class="updated">EFFECTIVE DATE: JANUARY 2026 · LAST REVISED: OCTOBER 2026</div>
+</header>
+
+<main class="content-wrap">
+<aside class="toc">
+<div class="toc-title">Navigation</div>
+<a href="#terms">01 Terms of Service</a>
+<a href="#deliverables">02 Project Deliverables</a>
+<a href="#ip">03 Intellectual Property</a>
+<a href="#privacy">04 Privacy Policy</a>
+<a href="#data">05 Data Collection</a>
+<a href="#contact-legal">06 Contact &amp; Governance</a>
+</aside>
+
+<div class="doc">
+
+<section class="doc-section" id="terms">
+<h2>01. Terms of Service</h2>
+<p>By accessing this portfolio, initiating a project inquiry, or commissioning services from PrincePreet Singh ("Creative Director", "we", "us", or "our"), you agree to be bound by the following terms and operating conditions.</p>
+<p>These terms apply across all creative engagements, including UI/UX product design, Meta ad creative strategy and media buying consultation, video production and editing, motion graphics, and full brand growth sprints.</p>
+</section>
+
+<section class="doc-section" id="deliverables">
+<h2>02. Project Deliverables &amp; Revision Protocol</h2>
+<p>All client projects are executed under structured milestone agreements defined during onboarding. Deliverables, schedules, and deliverables verification proceed as follows:</p>
+<ul>
+<li><strong>Discovery &amp; Brief:</strong> Sprints commence upon written approval of the brief, scope definition, and agreed initial payment schedule.</li>
+<li><strong>Revision Cycles:</strong> Standard contracts include up to two (2) comprehensive revision rounds for design wireframes, prototypes, ad creatives, or video cuts. Revisions exceeding the initial brief scope are evaluated as additional milestone addendums.</li>
+<li><strong>Turnaround Timelines:</strong> Estimated delivery windows depend on client feedback responsiveness and asset delivery. Delays in raw asset provision or approval automatically extend project timelines.</li>
+<li><strong>Asset Delivery:</strong> Final high-resolution assets (Figma files, ProRes/MP4 videos, campaign files) are released upon settlement of all milestone invoices.</li>
+</ul>
+</section>
+
+<section class="doc-section" id="ip">
+<h2>03. Intellectual Property Rights</h2>
+<p>We respect client copyright and brand ownership unconditionally:</p>
+<ul>
+<li><strong>Client Ownership:</strong> Upon full payment of the project fees, all custom-created end deliverables and intellectual property developed specifically for the client become the sole property of the client.</li>
+<li><strong>Pre-existing Tools &amp; Methodologies:</strong> Proprietary workflow frameworks, motion templates, internal software scripts, and base design system kits remain the intellectual property of PrincePreet Singh.</li>
+<li><strong>Portfolio Showcase:</strong> PrincePreet Singh reserves the perpetual, non-exclusive right to showcase non-confidential project case studies, final visuals, cuts, and performance metrics on this portfolio and industry awards, unless explicitly protected by a formal mutual Non-Disclosure Agreement (NDA).</li>
+</ul>
+</section>
+
+<section class="doc-section" id="privacy">
+<h2>04. Privacy Policy</h2>
+<p>Your privacy and confidentiality are strictly guarded. We never sell, rent, monetize, or trade your personal or business data to third parties. We collect and process only the minimal information required to execute our professional engagements and respond to your direct inquiries.</p>
+<div class="doc-box">
+<p><strong>Strict Anti-Spam Guarantee:</strong> Submitting a project brief via our website form or WhatsApp does not add you to marketing newsletters or cold outbound sequences. Your contact details are used solely for direct communication regarding your specific creative project.</p>
+</div>
+</section>
+
+<section class="doc-section" id="data">
+<h2>05. Data Collection &amp; Use</h2>
+<p>When you interact with this website or our inquiry modals, the following information may be processed:</p>
+<ul>
+<li><strong>Direct Inquiry Data:</strong> Your name, phone number, email address, project requirements, budget bracket, and timeline notes provided via the project inquiry modal.</li>
+<li><strong>Communication Routing:</strong> Project requests are formatted and transmitted directly to our official WhatsApp channel (+91 9779718814) or email inbox for real-time response.</li>
+<li><strong>Technical Telemetry:</strong> Standard non-identifying telemetry (browser type, screen resolution, referrers) collected through privacy-respecting analytics to optimize website responsiveness.</li>
+</ul>
+</section>
+
+<section class="doc-section" id="contact-legal">
+<h2>06. Contact &amp; Governance</h2>
+<p>If you have any questions regarding these Terms, would like to request an NDA prior to sharing sensitive company briefs, or wish to update your details, reach out directly:</p>
+
+<div class="contact-card">
+<h4>PrincePreet Singh</h4>
+<p>UI/UX Designer · Meta Ads Strategist · Video Editor</p>
+<div class="contact-links">
+<a class="contact-btn" href="mailto:i.veerdavinder@gmail.com">i.veerdavinder@gmail.com</a>
+<a class="contact-btn" href="https://wa.me/919779718814" target="_blank" rel="noopener noreferrer">WhatsApp: +91 9779718814</a>
+<a class="contact-btn" href="https://instagram.com/princeskill_hub" target="_blank" rel="noopener noreferrer">Instagram: @princeskill_hub</a>
+</div>
+</div>
+</section>
+
+</div>
+</main>
+
+<footer>
+<div class="footer-wrap">
+<span>© 2026 PrincePreet Singh. All rights reserved.</span>
+<div class="footer-links">
+<a href="index.html">Home</a>
+<a href="terms.html">Terms &amp; Policy</a>
+<a href="cookies.html">Cookie Policy</a>
+<a href="404.html">404 Preview</a>
+</div>
+</div>
+</footer>
+
+</body>
+</html>

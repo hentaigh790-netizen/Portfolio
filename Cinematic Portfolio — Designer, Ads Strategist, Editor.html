@@ -63,8 +63,38 @@ em{font-style:italic;color:var(--ac)}
 .act{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:center;border-top:1px solid var(--line)}
 .act h3{font:400 clamp(2.4rem,5vw,4.6rem)/1 var(--d);margin:.4em 0}
 .act p{color:var(--mut);max-width:34ch}
-.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:1.5rem}.tags span{font:11px var(--m);border:1px solid var(--line);border-radius:99px;padding:6px 12px}
-.art{aspect-ratio:4/3;border:1px solid var(--line);border-radius:14px;padding:20px;background:rgba(255,255,255,.025);display:flex;flex-direction:column;gap:14px;overflow:hidden}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:1.5rem}
+.tag-btn{font:11px var(--m);border:1px solid var(--line);border-radius:99px;padding:7px 15px;color:var(--mut);background:rgba(255,255,255,.02);cursor:pointer;transition:all .25s ease;letter-spacing:.02em;user-select:none;display:inline-flex;align-items:center}
+.tag-btn:hover{border-color:var(--fg);color:var(--fg);background:rgba(255,255,255,.07);transform:translateY(-1px)}
+.tag-btn.on{background:var(--ac);border-color:var(--ac);color:#0a0a0b;font-weight:600;box-shadow:0 0 16px rgba(255,77,28,.35)}
+.art{aspect-ratio:4/3;border:1px solid var(--line);border-radius:14px;padding:20px;background:rgba(255,255,255,.025);display:flex;flex-direction:column;gap:14px;overflow:hidden;position:relative}
+.a1-panel{width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;position:relative}
+.sys-hud{display:flex;justify-content:space-between;align-items:center;font:10px var(--m);color:var(--mut);letter-spacing:.12em;padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:10px}
+.sys-badge{background:rgba(255,77,28,.15);color:var(--ac);border:1px solid rgba(255,77,28,.3);padding:2px 8px;border-radius:99px;font-size:9px}
+.sys-swatches{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px}
+.sys-swatch{height:52px;border-radius:6px;padding:6px;display:flex;flex-direction:column;justify-content:space-between;font:9px var(--m);color:#f2efe9}
+.sys-swatch b{font-size:10px;letter-spacing:.04em}
+.sys-swatch small{opacity:.85}
+.sys-type-box{background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:flex;flex-direction:column;gap:6px;margin-bottom:10px}
+.sys-type-line{display:flex;justify-content:space-between;align-items:baseline}
+.sys-type-line small{font:10px var(--m);color:var(--mut)}
+.sys-comps{display:flex;gap:8px;flex-wrap:wrap}
+.sys-pill{padding:5px 12px;border-radius:99px;font:11px var(--m);letter-spacing:.04em}
+.sys-pill-primary{background:var(--fg);color:#0a0a0b;font-weight:600}
+.sys-pill-secondary{background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--fg)}
+.sys-pill-outline{background:rgba(255,77,28,.1);border:1px solid rgba(255,77,28,.3);color:var(--ac)}
+.proto-hud{display:flex;align-items:center;gap:8px;font:10px var(--m);color:var(--mut);letter-spacing:.12em;padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:12px}
+.proto-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 10px #4ade80;display:inline-block;animation:blink 1.5s infinite}
+.proto-card{background:rgba(255,255,255,.025);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.proto-header{display:flex;justify-content:space-between;align-items:center;font:11px var(--m);color:var(--fg)}
+.proto-chip{font:9px var(--m);background:rgba(255,255,255,.08);color:var(--mut);padding:2px 8px;border-radius:99px;letter-spacing:.08em}
+.proto-meter{height:6px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden}
+.proto-fill{height:100%;background:var(--ac);border-radius:99px;transition:width .45s cubic-bezier(.16,1,.3,1)}
+.proto-preview{background:#111114;border:1px solid var(--line);border-radius:8px;padding:10px;display:flex;flex-direction:column;gap:6px}
+.proto-row{display:flex;justify-content:space-between;align-items:center;font:12px var(--s);color:var(--mut)}
+.proto-row b{color:var(--fg);font-family:var(--m);font-size:11px}
+.proto-btn{width:100%;padding:11px;border-radius:99px;background:var(--fg);color:#0a0a0b;font:600 11px var(--m);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border:none;transition:all .2s;text-align:center}
+.proto-btn:hover{background:var(--ac);color:#fff;transform:translateY(-1px)}
 .art svg{width:100%;height:100%}
 .dr{fill:transparent;stroke:var(--fg);stroke-width:1.5;stroke-dasharray:1;stroke-dashoffset:1}
 .kp{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.kp div{border:1px solid var(--line);border-radius:8px;padding:10px;font:11px var(--m);color:var(--mut)}.kp b{display:block;font:400 1.8rem var(--d);color:var(--fg)}
@@ -194,13 +224,57 @@ em{font-style:italic;color:var(--ac)}
 </section>
 
 <div id="acts">
-<section class="act" id="a1"><div><span class="lbl"><b>Act I</b> — UI/UX</span><h3>I design the <em>experience.</em></h3><p>Research, wireframes and polished interfaces that turn confusion into conversion.</p><div class="tags"><span>Product design</span><span>Design systems</span><span>Prototyping</span></div></div>
-<div class="art"><svg viewBox="0 0 400 300"><g class="ui"><rect class="dr" data-f="#17171a" x="130" y="12" width="140" height="276" rx="18"/><rect class="dr" data-f="#f2efe9" x="146" y="34" width="108" height="14" rx="4"/><rect class="dr" data-f="#ff4d1c" x="146" y="60" width="108" height="74" rx="8"/><rect class="dr" data-f="#3a3a40" x="146" y="146" width="51" height="56" rx="8"/><rect class="dr" data-f="#3a3a40" x="203" y="146" width="51" height="56" rx="8"/><rect class="dr" data-f="#f2efe9" x="146" y="220" width="108" height="30" rx="15"/></g></svg></div></section>
+<section class="act" id="a1"><div><span class="lbl"><b>Act I</b> — UI/UX</span><h3>I design the <em>experience.</em></h3><p id="a1Desc">Research, wireframes and polished interfaces that turn confusion into conversion.</p><div class="tags" id="a1Tags"><button type="button" class="tag-btn on" data-act="a1" data-view="product">Product design</button><button type="button" class="tag-btn" data-act="a1" data-view="systems">Design systems</button><button type="button" class="tag-btn" data-act="a1" data-view="proto">Prototyping</button></div></div>
+<div class="art" id="a1Art">
+<div class="a1-panel a1-panel-product" id="a1Product">
+<svg viewBox="0 0 400 300"><g class="ui"><rect class="dr" data-f="#17171a" x="130" y="12" width="140" height="276" rx="18"/><rect class="dr" data-f="#f2efe9" x="146" y="34" width="108" height="14" rx="4"/><rect class="dr" data-f="#ff4d1c" x="146" y="60" width="108" height="74" rx="8"/><rect class="dr" data-f="#3a3a40" x="146" y="146" width="51" height="56" rx="8"/><rect class="dr" data-f="#3a3a40" x="203" y="146" width="51" height="56" rx="8"/><rect class="dr" data-f="#f2efe9" x="146" y="220" width="108" height="30" rx="15"/></g></svg>
+</div>
+<div class="a1-panel a1-panel-systems" id="a1Systems" style="display:none">
+<div class="sys-hud">
+<span>DESIGN TOKENS // FIGMA SPEC</span>
+<span class="sys-badge">V2.4 · READY</span>
+</div>
+<div class="sys-swatches">
+<div class="sys-swatch" style="background:#ff4d1c"><b>ACCENT</b><small>#ff4d1c</small></div>
+<div class="sys-swatch" style="background:#f2efe9;color:#0a0a0b"><b>LIGHT</b><small>#f2efe9</small></div>
+<div class="sys-swatch" style="background:#17171a;border:1px solid rgba(255,255,255,.15)"><b>SURFACE</b><small>#17171a</small></div>
+<div class="sys-swatch" style="background:#3a3a40"><b>MUTED</b><small>#3a3a40</small></div>
+</div>
+<div class="sys-type-box">
+<div class="sys-type-line"><span style="font-family:var(--d);font-size:1.3rem">H1 Headline</span><small>Instrument Serif · 48px</small></div>
+<div class="sys-type-line"><span style="font-family:var(--s);font-size:.85rem">Body Typography</span><small>Inter · 15px / 1.6</small></div>
+<div class="sys-type-line"><span style="font-family:var(--m);font-size:.7rem">MONOSPACE LABEL</span><small>JetBrains · 11px</small></div>
+</div>
+<div class="sys-comps">
+<span class="sys-pill sys-pill-primary">Primary Solid</span>
+<span class="sys-pill sys-pill-secondary">Secondary Ghost</span>
+<span class="sys-pill sys-pill-outline">Tokens Synced ✓</span>
+</div>
+</div>
+<div class="a1-panel a1-panel-proto" id="a1Proto" style="display:none">
+<div class="proto-hud">
+<span class="proto-dot"></span>
+<span>LIVE FLOW SIMULATOR · CLICK TEST</span>
+</div>
+<div class="proto-card">
+<div class="proto-header">
+<span id="protoStepLabel">Step 1 of 3: Cart Review</span>
+<span class="proto-chip" id="protoChip">STANDBY</span>
+</div>
+<div class="proto-meter"><div class="proto-fill" id="protoFill" style="width:33%"></div></div>
+<div class="proto-preview" id="protoPreview">
+<div class="proto-row"><span>User Flow</span><b id="protoTarget">Fintech Redesign</b></div>
+<div class="proto-row"><span>Simulated Conversion</span><b id="protoMetric" style="color:var(--ac)">+18% Expected</b></div>
+</div>
+<button type="button" class="proto-btn" id="protoActionBtn">Tap to Run User Flow →</button>
+</div>
+</div>
+</div></section>
 
-<section class="act" id="a2"><div><span class="lbl"><b>Act II</b> — Meta Ads</span><h3>I drive the <em>audience.</em></h3><p>Creative testing, funnel structure and scaling playbooks built around profit, not vanity metrics.</p><div class="tags"><span>Facebook &amp; Instagram</span><span>Creative strategy</span><span>Conversion tracking</span></div></div>
+<section class="act" id="a2"><div><span class="lbl"><b>Act II</b> — Meta Ads</span><h3>I drive the <em>audience.</em></h3><p id="a2Desc">Creative testing, funnel structure and scaling playbooks built around profit, not vanity metrics.</p><div class="tags" id="a2Tags"><button type="button" class="tag-btn on" data-act="a2" data-view="meta">Facebook &amp; Instagram</button><button type="button" class="tag-btn" data-act="a2" data-view="creative">Creative strategy</button><button type="button" class="tag-btn" data-act="a2" data-view="tracking">Conversion tracking</button></div></div>
 <div class="art"><div class="kp"><div>ROAS<b data-v="4.8" data-s="x">0</b></div><div>CTR<b data-v="3.2" data-s="%">0</b></div><div>CPA<b data-v="6.4" data-p="$">0</b></div></div><svg class="gr" viewBox="0 0 400 140" preserveAspectRatio="none"><path pathLength="1" d="M0 125 C40 115 60 100 90 92 S150 98 180 72 S250 62 280 42 S350 28 400 10"/></svg><div class="crs"><div class="cr"></div><div class="cr"></div><div class="cr"></div></div></div></section>
 
-<section class="act" id="a3"><div><span class="lbl"><b>Act III</b> — Video</span><h3>I cut the <em>story.</em></h3><p>Reels, ads and brand films edited for rhythm, retention and the first three seconds.</p><div class="tags"><span>Short-form</span><span>Motion &amp; color</span><span>Sound design</span></div></div>
+<section class="act" id="a3"><div><span class="lbl"><b>Act III</b> — Video</span><h3>I cut the <em>story.</em></h3><p id="a3Desc">Reels, ads and brand films edited for rhythm, retention and the first three seconds.</p><div class="tags" id="a3Tags"><button type="button" class="tag-btn on" data-act="a3" data-view="short">Short-form</button><button type="button" class="tag-btn" data-act="a3" data-view="color">Motion &amp; color</button><button type="button" class="tag-btn" data-act="a3" data-view="sound">Sound design</button></div></div>
 <div class="art"><div class="tl" id="tl"><div class="tr"><div class="cp" style="left:2%;width:30%;background:#ff4d1c"></div><div class="cp" style="left:34%;width:24%;background:#f2efe9"></div><div class="cp" style="left:60%;width:36%;background:#6b1a05"></div></div><div class="tr"><div class="cp" style="left:10%;width:40%;background:#3a3a40"></div><div class="cp" style="left:52%;width:44%;background:#8a857c"></div></div><div class="tr wv" id="wv"></div><div class="ph" id="ph"></div></div></div></section>
 </div>
 
@@ -397,6 +471,158 @@ localStorage.setItem("cookie_consent","declined");
 ckBanner.classList.remove("show");
 });
 }
+
+// Act I Tag Switcher (Product design / Design systems / Prototyping)
+const a1Views={
+product:{
+desc:"Research, wireframes and polished interfaces that turn confusion into conversion.",
+panel:"a1Product"
+},
+systems:{
+desc:"Design tokens, atomic component libraries, typography hierarchy and scalable Figma architecture for rapid developer handoff.",
+panel:"a1Systems"
+},
+proto:{
+desc:"Clickable, high-fidelity micro-interactions and animated state flows that validate UX before writing code.",
+panel:"a1Proto"
+}
+};
+
+$$("#a1Tags .tag-btn").forEach(btn=>{
+btn.onclick=()=>{
+$$("#a1Tags .tag-btn").forEach(b=>b.classList.toggle("on",b===btn));
+const view=btn.dataset.view;
+const data=a1Views[view];
+if(!data)return;
+
+const desc=$("#a1Desc");
+if(desc){
+gsap.to(desc,{opacity:0,y:-4,duration:0.15,onComplete:()=>{
+desc.textContent=data.desc;
+gsap.to(desc,{opacity:1,y:0,duration:0.25});
+}});
+}
+
+$$(".a1-panel").forEach(p=>p.style.display="none");
+const activePanel=$(`#${data.panel}`);
+if(activePanel){
+activePanel.style.display="flex";
+gsap.fromTo(activePanel,{opacity:0,y:10},{opacity:1,y:0,duration:0.35,ease:"power2.out"});
+}
+};
+});
+
+// Interactive Prototype Simulator inside a1Proto
+let protoStep=0;
+const protoSteps=[
+{label:"Step 1 of 3: Cart Review",chip:"STANDBY",fill:"33%",target:"Fintech Mobile Redesign",metric:"+18% Activation",btn:"Run Step 2: Instant Auth →"},
+{label:"Step 2 of 3: 1-Tap Biometric Auth",chip:"TESTING",fill:"66%",target:"Payment Flow Sprints",metric:"+29% Retention",btn:"Run Step 3: Complete Conversion →"},
+{label:"Step 3 of 3: Flow Validated ✓",chip:"SUCCESS",fill:"100%",target:"Full UX Prototype",metric:"+38% Surge Verified",btn:"↺ Reset Prototype Flow"}
+];
+
+const protoBtn=$("#protoActionBtn");
+if(protoBtn){
+protoBtn.onclick=()=>{
+protoStep=(protoStep+1)%protoSteps.length;
+const cur=protoSteps[protoStep];
+$("#protoStepLabel").textContent=cur.label;
+const chip=$("#protoChip");
+chip.textContent=cur.chip;
+chip.style.color=cur.chip==="SUCCESS"?"#4ade80":"var(--mut)";
+chip.style.background=cur.chip==="SUCCESS"?"rgba(74,222,128,.15)":"rgba(255,255,255,.08)";
+$("#protoFill").style.width=cur.fill;
+$("#protoTarget").textContent=cur.target;
+$("#protoMetric").textContent=cur.metric;
+protoBtn.textContent=cur.btn;
+gsap.fromTo("#protoPreview",{scale:0.97},{scale:1,duration:0.25,ease:"back.out(2)"});
+};
+}
+
+// Act II Tag Switcher (Facebook & Instagram / Creative strategy / Conversion tracking)
+const a2Views={
+meta:{
+desc:"Creative testing, funnel structure and scaling playbooks built around profit, not vanity metrics.",
+kps:[
+{label:"ROAS",val:"5.1",suf:"x"},
+{label:"CTR",val:"3.8",suf:"%"},
+{label:"CPA",val:"5.8",pref:"$"}
+]
+},
+creative:{
+desc:"Dynamic hook rate testing, angle diversification and modular iterations that defeat ad fatigue at scale.",
+kps:[
+{label:"HOOK",val:"48",suf:"%"},
+{label:"HOLD",val:"29",suf:"%"},
+{label:"CTR",val:"4.4",suf:"%"}
+]
+},
+tracking:{
+desc:"Conversions API (CAPI), first-party server attribution and event quality scoring configured for Meta's algorithm.",
+kps:[
+{label:"MATCH",val:"9.4",suf:"/10"},
+{label:"ATTRIB",val:"100",suf:"%"},
+{label:"EVENTS",val:"8",suf:"x"}
+]
+}
+};
+
+$$("#a2Tags .tag-btn").forEach(btn=>{
+btn.onclick=()=>{
+$$("#a2Tags .tag-btn").forEach(b=>b.classList.toggle("on",b===btn));
+const view=btn.dataset.view;
+const data=a2Views[view];
+if(!data)return;
+
+const desc=$("#a2Desc");
+if(desc){
+gsap.to(desc,{opacity:0,y:-4,duration:0.15,onComplete:()=>{
+desc.textContent=data.desc;
+gsap.to(desc,{opacity:1,y:0,duration:0.25});
+}});
+}
+
+const kps=$$("#a2 .kp div");
+data.kps.forEach((k,idx)=>{
+if(kps[idx]){
+kps[idx].innerHTML=`${k.label}<b>${k.pref||""}${k.val}${k.suf||""}</b>`;
+gsap.from(kps[idx].querySelector("b"),{scale:0.85,opacity:0.6,duration:0.3});
+}
+});
+
+gsap.fromTo("#a2 .gr path",{strokeDashoffset:1},{strokeDashoffset:0,duration:0.6,ease:"power2.out"});
+gsap.fromTo("#a2 .cr",{rotationY:90,opacity:0},{rotationY:0,opacity:1,stagger:0.1,duration:0.5});
+};
+});
+
+// Act III Tag Switcher (Short-form / Motion & color / Sound design)
+const a3Views={
+short:"Reels, ads and brand films edited for rhythm, retention and the first three seconds.",
+color:"Anamorphic color grading, 35mm film grain textures, and bespoke kinetic motion that elevates production value.",
+sound:"Multi-layered sound design, sub-bass impacts, foley, and micro-cuts synced frame-by-frame."
+};
+
+$$("#a3Tags .tag-btn").forEach(btn=>{
+btn.onclick=()=>{
+$$("#a3Tags .tag-btn").forEach(b=>b.classList.toggle("on",b===btn));
+const view=btn.dataset.view;
+const desc=$("#a3Desc");
+if(desc&&a3Views[view]){
+gsap.to(desc,{opacity:0,y:-4,duration:0.15,onComplete:()=>{
+desc.textContent=a3Views[view];
+gsap.to(desc,{opacity:1,y:0,duration:0.25});
+}});
+}
+
+if(view==="short"){
+gsap.fromTo("#a3 .tr:nth-child(1) .cp",{scaleX:0.4},{scaleX:1,duration:0.4,stagger:0.08});
+}else if(view==="color"){
+gsap.fromTo("#a3 .tr:nth-child(2) .cp",{opacity:0.2},{opacity:1,duration:0.4,stagger:0.08});
+}else if(view==="sound"){
+gsap.fromTo("#wv i",{scaleY:0.1},{scaleY:1,stagger:0.02,duration:0.3});
+}
+};
+});
+
 
 const Q=["“PrincePreet rebuilt our onboarding and our ads in one quarter. Revenue followed.”|FOUNDER, FINTECH STARTUP","“The best edit we’ve had. Retention jumped from second one.”|BRAND MANAGER, D2C","“Rare to find someone who thinks in design, data and story.”|CMO, SAAS COMPANY"];
 $("#mt").innerHTML=[...Q,...Q].map(q=>{const[a,b]=q.split("|");return`<div class="q"><p>${a}</p><small>${b}</small></div>`}).join("");

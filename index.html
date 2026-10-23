@@ -195,16 +195,37 @@ em{font-style:italic;color:var(--ac)}
 .cert-id b{color:var(--fg);font-weight:400}
 .cert-btn{display:inline-flex;align-items:center;gap:6px;font:11px var(--m);color:var(--fg);padding:6px 14px;border-radius:99px;border:1px solid var(--line);background:rgba(255,255,255,.03);cursor:pointer;transition:all .2s;letter-spacing:.04em}
 .cert-card:hover .cert-btn{background:var(--ac);border-color:var(--ac);color:#0a0a0b}
-.a2-cert-callout{display:flex;align-items:center;gap:14px;margin-top:1.8rem;padding:12px 16px;background:rgba(255,255,255,.025);border:1px solid var(--line);border-radius:12px;cursor:pointer;transition:all .25s ease;text-decoration:none;color:inherit;max-width:440px}
-.a2-cert-callout:hover{background:rgba(255,255,255,.05);border-color:rgba(242,239,233,.3);transform:translateY(-2px)}
-.a2-cert-thumb{width:64px;height:45px;border-radius:6px;overflow:hidden;border:1px solid var(--line);flex-shrink:0;background:#111}
-.a2-cert-thumb img{width:100%;height:100%;object-fit:cover;display:block}
-.a2-cert-info{display:flex;flex-direction:column;gap:2px;flex:1;min-width:0}
-.a2-cert-lbl{font:10px var(--m);color:#4ade80;letter-spacing:.08em;display:flex;align-items:center;gap:6px}
-.a2-cert-info b{font:500 13px var(--s);color:var(--fg);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.a2-cert-info small{font:11px var(--m);color:var(--mut)}
-.a2-cert-arrow{font:11px var(--m);color:var(--ac);padding:4px 10px;border-radius:99px;background:rgba(255,77,28,.1);border:1px solid rgba(255,77,28,.25);transition:all .2s;flex-shrink:0}
-.a2-cert-callout:hover .a2-cert-arrow{background:var(--ac);color:#0a0a0b}
+.a2-cert-dossier{margin-top:2rem;background:rgba(255,255,255,.025);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden;transition:border-color .3s,background .3s}
+.a2-cert-dossier:hover{border-color:rgba(242,239,233,.25);background:rgba(255,255,255,.035)}
+.a2-dossier-head{display:flex;justify-content:space-between;align-items:center;font:10px var(--m);color:var(--mut);letter-spacing:.12em;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.a2-dossier-badge{display:inline-flex;align-items:center;gap:6px;color:#4ade80;background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.28);padding:3px 9px;border-radius:99px;font-size:9.5px;letter-spacing:.06em}
+.a2-dossier-date{color:var(--mut);font-family:var(--m);font-size:10px}
+.a2-dossier-title{font:400 clamp(1.6rem,2.4vw,2.2rem)/1.1 var(--d);color:var(--fg);margin:0}
+.a2-dossier-award{font:400 13px/1.6 var(--s);color:var(--mut)}
+.a2-dossier-award b{color:var(--fg);font-weight:500}
+.a2-dossier-sigs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:12px 0;border-block:1px solid var(--line);margin:4px 0}
+@media(max-width:600px){.a2-dossier-sigs{grid-template-columns:1fr}}
+.a2-sig-item{display:flex;flex-direction:column;gap:2px}
+.a2-sig-item b{font:500 12px var(--s);color:var(--fg);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.a2-sig-item small{font:9px var(--m);color:var(--mut);letter-spacing:.08em;text-transform:uppercase}
+.a2-dossier-skills{display:flex;flex-wrap:wrap;gap:6px}
+.a2-dossier-skills span{font:10px var(--m);color:var(--mut);background:rgba(255,255,255,.03);border:1px solid var(--line);padding:3px 8px;border-radius:4px;letter-spacing:.02em}
+.a2-dossier-foot{display:flex;justify-content:space-between;align-items:center;padding-top:4px}
+.a2-dossier-btn{display:inline-flex;align-items:center;gap:8px;padding:9px 20px;border-radius:99px;background:var(--fg);color:#0a0a0b;font:600 11px var(--m);letter-spacing:.06em;text-transform:uppercase;border:none;cursor:pointer;transition:all .2s ease}
+.a2-dossier-btn:hover{background:var(--ac);color:#fff;transform:translateY(-1px)}
+.a2-dossier-id{font:10px var(--m);color:var(--mut)}
+
+.a2-cert-preview-card{display:flex;align-items:center;gap:14px;margin-top:14px;padding:12px 16px;background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:12px;cursor:pointer;transition:all .25s ease}
+.a2-cert-preview-card:hover{background:rgba(255,255,255,.04);border-color:rgba(242,239,233,.25);transform:translateY(-2px)}
+.a2-quick-thumb{width:68px;height:48px;border-radius:6px;overflow:hidden;border:1px solid var(--line);flex-shrink:0;background:#111}
+.a2-quick-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.a2-quick-text{display:flex;flex-direction:column;gap:2px;flex:1;min-width:0}
+.a2-quick-tag{font:9.5px var(--m);color:#4ade80;display:flex;align-items:center;gap:5px;letter-spacing:.06em}
+.a2-quick-text b{font:500 13px var(--s);color:var(--fg);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.a2-quick-text p{font:11px/1.4 var(--s);color:var(--mut);margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.a2-quick-btn{font:11px var(--m);color:var(--ac);padding:5px 12px;border-radius:99px;background:rgba(255,77,28,.1);border:1px solid rgba(255,77,28,.25);cursor:pointer;flex-shrink:0;transition:all .2s ease}
+.a2-cert-preview-card:hover .a2-quick-btn{background:var(--ac);color:#0a0a0b}
+
 .a2-panel-metrics{width:100%;height:100%;display:flex;flex-direction:column;gap:14px;justify-content:space-between}
 .a2-panel-cert{width:100%;height:100%;display:flex;flex-direction:column;justify-content:space-between;position:relative}
 .a2-cert-hud{display:flex;justify-content:space-between;align-items:center;font:10px var(--m);color:var(--mut);letter-spacing:.12em;padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:8px}
@@ -315,25 +336,53 @@ em{font-style:italic;color:var(--ac)}
 </div>
 </div></section>
 
-<section class="act" id="a2"><div><span class="lbl"><b>Act II</b> — Meta Ads</span><h3>I drive the <em>audience.</em></h3><p id="a2Desc">Creative testing, funnel structure and scaling playbooks built around profit, not vanity metrics.</p><div class="tags" id="a2Tags"><button type="button" class="tag-btn on" data-act="a2" data-view="meta">Facebook &amp; Instagram</button><button type="button" class="tag-btn" data-act="a2" data-view="creative">Creative strategy</button><button type="button" class="tag-btn" data-act="a2" data-view="tracking">Conversion tracking</button><button type="button" class="tag-btn" data-act="a2" data-view="cert"><i class="cert-dot"></i> Verified Certificate</button></div>
-<div class="a2-cert-callout" id="a2CertBadge" title="Click to inspect verified certificate">
-<div class="a2-cert-thumb"><img src="certificate_facebook_ads.png" alt="CareerMize Facebook Ads Mastery Certificate"></div>
-<div class="a2-cert-info">
-<span class="a2-cert-lbl"><i class="cert-dot"></i> VERIFIED ACCREDITATION</span>
-<b>Facebook Ads Mastery</b>
-<small>CareerMize · Completed 23-Oct-2026</small>
+<section class="act" id="a2"><div><span class="lbl"><b>Act II</b> — Meta Ads &amp; Performance Strategy</span><h3>I drive the <em>audience.</em></h3><p id="a2Desc">Creative testing, funnel structure and scaling playbooks built around profit, not vanity metrics. Formally certified in performance advertising across Facebook, Instagram, and server-side CAPI architecture.</p><div class="tags" id="a2Tags"><button type="button" class="tag-btn on" data-act="a2" data-view="meta">Facebook &amp; Instagram</button><button type="button" class="tag-btn" data-act="a2" data-view="creative">Creative strategy</button><button type="button" class="tag-btn" data-act="a2" data-view="tracking">Conversion tracking</button><button type="button" class="tag-btn" data-act="a2" data-view="cert"><i class="cert-dot"></i> Verified Certificate</button></div>
+
+<div class="a2-cert-dossier" id="a2CertDossier">
+<div class="a2-dossier-head">
+<div class="a2-dossier-badge"><i class="cert-dot"></i><span>CAREERMIZE OFFICIAL CERTIFICATION</span></div>
+<span class="a2-dossier-date">ISSUED 23-OCT-2026</span>
 </div>
-<span class="a2-cert-arrow">View ↗</span>
+<h4 class="a2-dossier-title">Facebook Ads Mastery</h4>
+<div class="a2-dossier-award">Awarded to <b>Princepreet Singh</b> for successfully completing the advanced media strategy and campaign execution curriculum from <b>CareerMize</b>.</div>
+<div class="a2-dossier-sigs">
+<div class="a2-sig-item"><b>Abhinandan Kumar</b><small>FOUNDER / CEO</small></div>
+<div class="a2-sig-item"><b>Ankit Kumar</b><small>CO-FOUNDER</small></div>
+<div class="a2-sig-item"><b>Gulshan</b><small>MANAGEMENT HEAD</small></div>
+</div>
+<div class="a2-dossier-skills">
+<span>Full-Funnel Architecture</span>
+<span>Advantage+ Scaling</span>
+<span>CAPI &amp; Server Attribution</span>
+<span>Dynamic Creative Testing</span>
+<span>Audience Segmentation</span>
+</div>
+<div class="a2-dossier-foot">
+<span class="a2-dossier-id">CREDENTIAL: <b>CM-FB-2026-8491</b></span>
+<button type="button" class="a2-dossier-btn" id="a2DossierInspectBtn">Inspect Full Certificate ↗</button>
 </div>
 </div>
+
+</div>
+<div class="art-wrap">
 <div class="art" id="a2Art">
-<div class="a2-panel a2-panel-metrics" id="a2Metrics"><div class="kp"><div>ROAS<b data-v="4.8" data-s="x">0</b></div><div>CTR<b data-v="3.2" data-s="%">0</b></div><div>CPA<b data-v="6.4" data-p="$">0</b></div></div><svg class="gr" viewBox="0 0 400 140" preserveAspectRatio="none"><path pathLength="1" d="M0 125 C40 115 60 100 90 92 S150 98 180 72 S250 62 280 42 S350 28 400 10"/></svg><div class="crs"><div class="cr"></div><div class="cr"></div><div class="cr"></div></div></div>
+<div class="a2-panel a2-panel-metrics" id="a2Metrics"><div class="kp"><div>ROAS<b data-v="5.1" data-s="x">0</b></div><div>CTR<b data-v="3.8" data-s="%">0</b></div><div>CPA<b data-v="5.8" data-p="$">0</b></div></div><svg class="gr" viewBox="0 0 400 140" preserveAspectRatio="none"><path pathLength="1" d="M0 125 C40 115 60 100 90 92 S150 98 180 72 S250 62 280 42 S350 28 400 10"/></svg><div class="crs"><div class="cr"></div><div class="cr"></div><div class="cr"></div></div></div>
 <div class="a2-panel a2-panel-cert" id="a2CertPanel" style="display:none">
 <div class="a2-cert-hud"><span>CAREERMIZE // ACCREDITED COURSE</span><span class="cert-badge"><i class="cert-dot"></i>VERIFIED · 23-OCT-2026</span></div>
 <div class="a2-cert-frame" id="a2CertFrame" title="Click to view full certificate">
 <img src="certificate_facebook_ads.png" alt="CareerMize Facebook Ads Mastery - Princepreet Singh">
 <div class="a2-cert-overlay"><span class="a2-cert-zoom-btn">Inspect Certificate ↗</span></div>
 </div>
+</div>
+</div>
+<div class="a2-cert-preview-card" id="a2QuickPreview" title="Click to view full certificate">
+<div class="a2-quick-thumb"><img src="certificate_facebook_ads.png" alt="CareerMize Facebook Ads Mastery"></div>
+<div class="a2-quick-text">
+<div class="a2-quick-tag"><i class="cert-dot"></i> AUTHENTICATED CREDENTIAL · 23-OCT-2026</div>
+<b>Facebook Ads Mastery · CareerMize</b>
+<p>Certified in media buying, conversion tracking (CAPI), and scalable ad funnels.</p>
+</div>
+<button type="button" class="a2-quick-btn" id="a2QuickZoomBtn">Enlarge ↗</button>
 </div>
 </div></section>
 
@@ -818,6 +867,9 @@ document.body.classList.add("lock");
 };
 $("#a2CertBadge")?.addEventListener("click",openMetaCertModal);
 $("#a2CertFrame")?.addEventListener("click",openMetaCertModal);
+$("#a2DossierInspectBtn")?.addEventListener("click",openMetaCertModal);
+$("#a2QuickPreview")?.addEventListener("click",openMetaCertModal);
+$("#a2QuickZoomBtn")?.addEventListener("click",openMetaCertModal);
 
 // Act III Tag Switcher (Short-form / Motion & color / Sound design)
 const a3Views={

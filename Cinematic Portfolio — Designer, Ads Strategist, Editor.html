@@ -171,6 +171,30 @@ em{font-style:italic;color:var(--ac)}
 .f-btn{width:100%;margin-top:1.4rem;padding:16px 28px;border-radius:99px;background:var(--fg);color:#0a0a0b;font:600 13px var(--m);letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:background .3s,transform .2s;position:relative}
 .f-btn:hover{background:var(--ac);color:#fff;transform:translateY(-1px)}
 .f-wa-icon{width:18px;height:18px;fill:currentColor}
+.cert-sec{padding:14vh 5vw;border-top:1px solid var(--line)}
+.cert-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:2rem;margin-bottom:6vh}
+.cert-head h2{font:400 clamp(2.4rem,5.5vw,5rem)/1 var(--d)}
+.cert-head-right{display:flex;flex-direction:column;gap:1.5rem;align-items:flex-start}
+.cert-desc{color:var(--mut);max-width:44ch;font:400 15px/1.65 var(--s)}
+.cert-fl{display:flex;gap:6px}
+.cert-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+@media(max-width:900px){.cert-grid{grid-template-columns:1fr}.cert-head{flex-direction:column;align-items:flex-start}}
+.cert-card{background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:14px;padding:clamp(22px,3vw,32px);display:flex;flex-direction:column;justify-content:space-between;transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .3s,background .3s;position:relative;overflow:hidden;cursor:pointer}
+.cert-card:hover{transform:translateY(-3px);border-color:rgba(242,239,233,.3);background:rgba(255,255,255,.035)}
+.cert-card::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);opacity:0;transition:opacity .3s}
+.cert-card:hover::before{opacity:1;background:linear-gradient(90deg,transparent,var(--ac),transparent)}
+.cert-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.4rem;font:11px var(--m);letter-spacing:.12em}
+.cert-org{color:var(--mut);text-transform:uppercase}
+.cert-badge{display:inline-flex;align-items:center;gap:6px;font:10px var(--m);padding:3px 10px;border-radius:99px;background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.3);color:#4ade80;letter-spacing:.06em}
+.cert-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;box-shadow:0 0 8px #4ade80;display:inline-block;animation:bl 1.4s infinite}
+.cert-card h3{font:400 clamp(1.6rem,2.8vw,2.2rem)/1.15 var(--d);margin-bottom:.8rem;color:var(--fg)}
+.cert-desc-text{font:400 14px/1.65 var(--s);color:var(--mut);margin-bottom:1.5rem}
+.cert-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.8rem}
+.cert-pill{font:11px var(--m);padding:4px 10px;border-radius:6px;background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--mut)}
+.cert-foot{display:flex;justify-content:space-between;align-items:center;padding-top:1.2rem;border-top:1px solid var(--line);font:11px var(--m);color:var(--mut);letter-spacing:.08em}
+.cert-id b{color:var(--fg);font-weight:400}
+.cert-btn{display:inline-flex;align-items:center;gap:6px;font:11px var(--m);color:var(--fg);padding:6px 14px;border-radius:99px;border:1px solid var(--line);background:rgba(255,255,255,.03);cursor:pointer;transition:all .2s;letter-spacing:.04em}
+.cert-card:hover .cert-btn{background:var(--ac);border-color:var(--ac);color:#0a0a0b}
 .faq-sec{padding:14vh 5vw;border-top:1px solid var(--line)}
 .faq-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:6vw;align-items:start}
 @media(max-width:900px){.faq-grid{grid-template-columns:1fr}}
@@ -206,8 +230,8 @@ em{font-style:italic;color:var(--ac)}
 
 <div id="pre"><div class="b b1"></div><div class="b b2"></div><div><div class="num" id="count">3</div><small>LOADING REEL · CLICK TO SKIP</small></div><div id="bar"></div></div>
 
-<nav id="nav"><a class="lg" href="#top">PrincePreet Singh</a><a class="lk" href="#about">About</a><a class="lk" href="#acts">Services</a><a class="lk" href="#work">Work</a><a class="lk" href="#process">Process</a><a class="lk" href="#faqs">FAQ</a><a class="lk" href="#contact">Contact</a><button class="mb" id="mb" data-cur="MENU">Menu</button></nav>
-<div id="menu"><a href="#about">About</a><a href="#acts">Services</a><a href="#work">Work</a><a href="#process">Process</a><a href="#faqs">FAQ</a><a href="#contact">Contact</a></div>
+<nav id="nav"><a class="lg" href="#top">PrincePreet Singh</a><a class="lk" href="#about">About</a><a class="lk" href="#acts">Services</a><a class="lk" href="#work">Work</a><a class="lk" href="#process">Process</a><a class="lk" href="#certificates">Certificates</a><a class="lk" href="#faqs">FAQ</a><a class="lk" href="#contact">Contact</a><button class="mb" id="mb" data-cur="MENU">Menu</button></nav>
+<div id="menu"><a href="#about">About</a><a href="#acts">Services</a><a href="#work">Work</a><a href="#process">Process</a><a href="#certificates">Certificates</a><a href="#faqs">FAQ</a><a href="#contact">Contact</a></div>
 
 <section class="hero" id="top">
 <span class="lbl"><b>●</b> Scene 01 — Opening titles</span>
@@ -288,7 +312,7 @@ em{font-style:italic;color:var(--ac)}
 <div class="f-box">
 <button type="button" class="f-close" id="fClose" aria-label="Close modal">✕</button>
 <div class="f-head">
-<span class="lbl" style="margin-bottom:.5rem"><b>●</b> Scene 08 — Project Brief</span>
+<span class="lbl" style="margin-bottom:.5rem"><b>●</b> Scene 09 — Project Brief</span>
 <h2>Start a <em>project.</em></h2>
 <p class="f-sub">Fill in your details below. Once submitted, your inquiry will be formatted and forwarded directly to PrincePreet on WhatsApp (+91 9779718814).</p>
 </div>
@@ -344,10 +368,31 @@ em{font-style:italic;color:var(--ac)}
 
 <div class="mq"><div class="mt" id="mt"></div></div>
 
+<section class="cert-sec" id="certificates">
+<div class="cert-head">
+<div>
+<span class="lbl"><b>●</b> Scene 06 — Verified Credentials</span>
+<h2>Industry <em>certifications.</em></h2>
+</div>
+<div class="cert-head-right">
+<p class="cert-desc">Rigorous technical certifications validating performance marketing algorithms, human-centered UI/UX design architecture, and cinema-grade post-production.</p>
+<div class="fl cert-fl" id="certFilters">
+<button class="on" data-cf="all" type="button">All</button>
+<button data-cf="ux" type="button">UX</button>
+<button data-cf="ads" type="button">Ads</button>
+<button data-cf="video" type="button">Video</button>
+</div>
+</div>
+</div>
+<div class="cert-grid" id="certGrid"></div>
+</section>
+
+<div class="case" id="certModal"><div><span class="lbl" id="cmo"></span><h2 id="cmt"></h2><div class="big" id="cmi"></div><div id="cmd-wrap" style="margin:1.5rem 0;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid var(--line);padding:22px;text-align:left"><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font:11px var(--m);color:var(--mut);margin-bottom:12px;border-bottom:1px solid var(--line);padding-bottom:12px"><div>VERIFICATION: <b style="color:#4ade80">AUTHENTICATED &amp; ACTIVE</b></div><div>ISSUED: <span id="cmd-date" style="color:var(--fg)"></span></div></div><p id="cmd-desc" style="color:var(--mut);font:400 14px/1.7 var(--s);margin-bottom:14px"></p><div id="cmd-tags" style="display:flex;flex-wrap:wrap;gap:8px"></div></div><button id="cmx" data-cur="CLOSE" type="button">Close ✕</button></div></div>
+
 <section class="faq-sec" id="faqs">
 <div class="faq-grid">
 <div>
-<span class="lbl"><b>●</b> Scene 06 — Inquiries &amp; Answers</span>
+<span class="lbl"><b>●</b> Scene 07 — Inquiries &amp; Answers</span>
 <h2>Frequently asked <em>questions.</em></h2>
 <p style="color:var(--mut);margin-top:1.2rem;max-width:34ch">Everything you need to know about working together, project deliverables, timelines, and scaling your brand.</p>
 </div>
@@ -376,7 +421,7 @@ em{font-style:italic;color:var(--ac)}
 </div>
 </section>
 
-<section class="ct" id="contact"><span class="lbl"><b>●</b> Scene 07 — End credits</span><h2 id="bigt">Let’s make something <em>worth watching.</em></h2>
+<section class="ct" id="contact"><span class="lbl"><b>●</b> Scene 08 — End credits</span><h2 id="bigt">Let’s make something <em>worth watching.</em></h2>
 <button class="cta mag" id="btnStartProject" type="button">Start a project →</button>
 <div class="lks"><a class="roll" href="mailto:i.veerdavinder@gmail.com"><span data-t="Email">Email</span></a><a class="roll" href="https://instagram.com/princeskill_hub" target="_blank" rel="noopener noreferrer"><span data-t="Instagram">Instagram</span></a><a class="roll" href="https://wa.me/919779718814" target="_blank" rel="noopener noreferrer"><span data-t="WhatsApp">WhatsApp</span></a></div>
 <div class="leg">
@@ -410,13 +455,116 @@ const P=[
 const tr=$("#track");
 P.forEach((p,i)=>{const a=document.createElement("article");a.className="card";a.dataset.c=p.c;a.dataset.cur="VIEW";a.innerHTML=`<div class="vis"><img src="${p.img}" alt="${p.t}" class="vis-img" onerror="this.style.display='none'"><div class="vis-over"></div><span>0${i+1}</span><div class="vis-pill">${p.r}</div></div><h4>${p.t}</h4><p>${p.m}</p>`;a.onclick=()=>{$("#cm").textContent=p.m;$("#ct2").textContent=p.t;$("#cr").textContent=p.r;$("#cimg").src=p.img;$("#case").classList.add("open")};tr.append(a)});
 $("#cx").onclick=()=>$("#case").classList.remove("open");
+
+// Certificates data & interactive handlers
+const CERTS=[
+{
+c:"ads",
+org:"Meta Blueprint",
+title:"Meta Certified Media Buying & Strategy Professional",
+id:"META-BP-748921-MB",
+date:"2024 · Verified",
+desc:"Comprehensive accreditation in performance marketing across Facebook & Instagram algorithms, Conversion API (CAPI) server attribution, dynamic creative testing, and ROAS scaling.",
+tags:["CAPI Attribution","Advantage+ Scaling","Dynamic Creative Testing","ROAS Optimization","Event Matching 9.4/10"]
+},
+{
+c:"ux",
+org:"Google Career Certificates",
+title:"Google UX Design Professional Specialization",
+id:"GGL-UX-992418-SPEC",
+date:"2024 · Verified",
+desc:"End-to-end UX credential covering qualitative user research, wireframing, scalable Figma token architecture, usability testing, and WCAG 2.1 AA accessibility compliance.",
+tags:["Design Systems","Figma Variables & Tokens","Usability Testing","WCAG 2.1 AA","Interactive Prototyping"]
+},
+{
+c:"video",
+org:"Adobe Certified Associate",
+title:"Adobe Certified Professional in Digital Video",
+id:"ADB-PR-552194-PRO",
+date:"2023 · Verified",
+desc:"Professional qualification in non-linear video editing, retention-focused pacing, Premiere Pro multicam workflows, After Effects kinetic motion, and 35mm color grading.",
+tags:["First 3s Retention","After Effects Motion","35mm Color Grade","Audio Foley & EQ","9:16 Vertical Video"]
+},
+{
+c:"ux",
+org:"Interaction Design Foundation",
+title:"Enterprise Design Systems & UI Architecture",
+id:"IXDF-DS-38102-ENT",
+date:"2025 · Verified",
+desc:"Advanced accreditation in atomic design hierarchies, token synchronization between Figma and front-end production code, and conversion-centered UX ergonomics.",
+tags:["Atomic Hierarchy","Token Synchronization","Component Scalability","UX Ergonomics","Design Governance"]
+}
+];
+
+const cGrid=$("#certGrid");
+if(cGrid){
+CERTS.forEach(c=>{
+const card=document.createElement("article");
+card.className="cert-card";
+card.dataset.c=c.c;
+card.innerHTML=`
+<div>
+<div class="cert-top">
+<span class="cert-org">${c.org}</span>
+<span class="cert-badge"><i class="cert-dot"></i>VERIFIED</span>
+</div>
+<h3>${c.title}</h3>
+<p class="cert-desc-text">${c.desc}</p>
+<div class="cert-pills">
+${c.tags.map(t=>`<span class="cert-pill">${t}</span>`).join("")}
+</div>
+</div>
+<div class="cert-foot">
+<span class="cert-id">ID: <b>${c.id}</b></span>
+<span class="cert-btn">Inspect Credential ↗</span>
+</div>`;
+card.onclick=()=>{
+$("#cmo").textContent=`${c.org.toUpperCase()} // VERIFIED CREDENTIAL`;
+$("#cmt").textContent=c.title;
+$("#cmi").textContent=c.id;
+$("#cmd-date").textContent=c.date;
+$("#cmd-desc").textContent=c.desc;
+$("#cmd-tags").innerHTML=c.tags.map(t=>`<span class="cert-pill" style="color:var(--fg);background:rgba(255,255,255,.07)">${t}</span>`).join("");
+$("#certModal").classList.add("open");
+document.body.classList.add("lock");
+};
+cGrid.append(card);
+});
+}
+
+$("#cmx").onclick=()=>{
+$("#certModal").classList.remove("open");
+document.body.classList.remove("lock");
+};
+$("#certModal").onclick=e=>{
+if(e.target===$("#certModal")){
+$("#certModal").classList.remove("open");
+document.body.classList.remove("lock");
+}
+};
+
+$$("#certFilters button").forEach(btn=>{
+btn.onclick=()=>{
+$$("#certFilters button").forEach(x=>x.classList.toggle("on",x===btn));
+const f=btn.dataset.cf;
+$$(".cert-card").forEach(c=>{
+const show=f==="all"||c.dataset.c===f;
+c.style.display=show?"flex":"none";
+});
+if(window.gsap){
+gsap.fromTo(".cert-card:not([style*='none'])",{opacity:0,y:20},{opacity:1,y:0,stagger:.08,duration:.45,ease:"power3.out"});
+if(window.ScrollTrigger)ScrollTrigger.refresh();
+}
+};
+});
+
 const fModal=$("#formModal");
 const openFModal=()=>{fModal.classList.add("open");fModal.setAttribute("aria-hidden","false");document.body.classList.add("lock");setTimeout(()=>$("#fName").focus(),150)};
 const closeFModal=()=>{fModal.classList.remove("open");fModal.setAttribute("aria-hidden","true");document.body.classList.remove("lock")};
 $("#btnStartProject").onclick=e=>{e.preventDefault();openFModal()};
 $("#fClose").onclick=closeFModal;
 fModal.onclick=e=>{if(e.target===fModal)closeFModal()};
-addEventListener("keydown",e=>{if(e.key==="Escape"){closeFModal();$("#case").classList.remove("open")}});
+addEventListener("keydown",e=>{if(e.key==="Escape"){closeFModal();$("#case").classList.remove("open");$("#certModal").classList.remove("open")}});
 
 $("#projectForm").onsubmit=e=>{
 e.preventDefault();
@@ -671,6 +819,8 @@ $$("#fl button").forEach(b=>b.onclick=()=>{$$("#fl button").forEach(x=>x.classLi
 // process
 gsap.to("#pli",{scaleX:1,ease:"none",scrollTrigger:{trigger:".pr",start:"top 70%",end:"bottom 60%",scrub:true}});
 $$(".st").forEach(s=>{ScrollTrigger.create({trigger:s,start:"top 70%",onEnter:()=>s.classList.add("on"),onLeaveBack:()=>s.classList.remove("on")});gsap.from(s,{y:40,opacity:0,duration:.9,ease:E,scrollTrigger:{trigger:s,start:"top 85%"}})});
+// certificates
+gsap.from(".cert-card",{y:35,opacity:0,duration:.9,stagger:.1,ease:E,scrollTrigger:{trigger:"#certGrid",start:"top 85%"}});
 // contact
 gsap.from("#bigt",{scale:.9,opacity:0,duration:1.2,ease:E,transformOrigin:"left center",scrollTrigger:{trigger:"#bigt",start:"top 85%"}});
 gsap.from("#fin",{opacity:0,y:40,ease:"none",scrollTrigger:{trigger:"#fin",start:"top 100%",end:"bottom 90%",scrub:true}});

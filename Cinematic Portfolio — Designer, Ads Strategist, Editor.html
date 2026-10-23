@@ -124,9 +124,15 @@ em{font-style:italic;color:var(--ac)}
 .vis span{position:absolute;left:16px;top:14px;font:11px var(--m);letter-spacing:.14em;background:rgba(10,10,11,.75);backdrop-filter:blur(8px);padding:4px 8px;border-radius:4px;border:1px solid rgba(255,255,255,.1);z-index:2}
 .vis-pill{position:absolute;left:16px;bottom:14px;font:11px var(--m);letter-spacing:.1em;text-transform:uppercase;color:var(--ac);background:rgba(10,10,11,.85);backdrop-filter:blur(8px);padding:4px 10px;border-radius:99px;border:1px solid rgba(255,77,28,.35);z-index:2}
 .card h4{font:400 1.9rem/1.1 var(--d);margin-top:14px}.card p{font:12px var(--m);color:var(--mut);letter-spacing:.08em}
-.case{position:fixed;inset:0;z-index:130;background:var(--bg);display:grid;place-items:center;padding:5vw;clip-path:circle(0 at 50% 50%);transition:clip-path .9s cubic-bezier(.76,0,.24,1)}
-.case.open{clip-path:circle(150% at 50% 50%)}
-.case>div{max-width:900px}.case h2{margin:1rem 0}.case .big{font:400 clamp(3rem,10vw,8rem)/1 var(--d);color:var(--ac);margin:1rem 0}.case button{margin-top:2rem;border:1px solid var(--line);border-radius:99px;padding:12px 22px}
+.case{position:fixed;inset:0;z-index:130;background:rgba(10,10,11,.96);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;display:flex;justify-content:center;align-items:flex-start;padding:clamp(20px,4vw,50px) 5vw;clip-path:circle(0 at 50% 50%);transition:clip-path .75s cubic-bezier(.76,0,.24,1);pointer-events:none}
+.case.open{clip-path:circle(150% at 50% 50%);pointer-events:auto}
+.case>div{max-width:920px;width:100%;margin:auto 0;padding:20px 0 50px;position:relative}
+.case-close-top{position:sticky;top:10px;float:right;z-index:10;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:rgba(20,20,24,.9);backdrop-filter:blur(10px);color:var(--mut);display:grid;place-items:center;cursor:pointer;font-size:18px;transition:all .2s ease;margin-bottom:12px}
+.case-close-top:hover{color:var(--fg);border-color:var(--fg);background:rgba(255,255,255,.12);transform:scale(1.05)}
+.case h2{margin:1rem 0}
+.case .big{font:400 clamp(2.2rem,7vw,5rem)/1 var(--d);color:var(--ac);margin:.8rem 0}
+.case button.case-bottom-close,.case button#cx,.case button#cmx{margin-top:2rem;border:1px solid var(--line);border-radius:99px;padding:12px 26px;background:rgba(255,255,255,.04);color:var(--fg);cursor:pointer;font:600 12px var(--m);letter-spacing:.08em;text-transform:uppercase;transition:all .2s ease}
+.case button.case-bottom-close:hover,.case button#cx:hover,.case button#cmx:hover{background:var(--ac);color:#0a0a0b;border-color:var(--ac);transform:translateY(-1px)}
 .pr{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:3vw;margin-top:8vh}
 .pl{position:absolute;top:10px;left:0;right:0;height:1px;background:var(--line)}.pl i{display:block;height:100%;background:var(--ac);transform:scaleX(0);transform-origin:left}
 .st{padding-top:48px;position:relative}.st::before{content:"";position:absolute;top:4px;left:0;width:13px;height:13px;border-radius:50%;background:var(--bg);border:1px solid var(--mut);transition:.4s}.st.on::before{background:var(--ac);border-color:var(--ac);box-shadow:0 0 0 6px #ff4d1c33}
@@ -394,9 +400,9 @@ em{font-style:italic;color:var(--ac)}
 <div class="rh"><div><span class="lbl"><b>●</b> Scene 04 — The reel</span><h2>Selected <em>work</em></h2></div><div class="fl" id="fl"><button class="on" data-f="all">All</button><button data-f="ux">UX</button><button data-f="ads">Ads</button><button data-f="video">Video</button></div></div>
 <div class="wrap"><div class="track" id="track"></div></div>
 </section>
-<div class="case" id="case"><div><span class="lbl" id="cm"></span><h2 id="ct2"></h2><div class="big" id="cr"></div><div id="cimg-wrap" style="margin:1.5rem 0;border-radius:8px;overflow:hidden;max-height:42vh;border:1px solid var(--line)"><img id="cimg" src="" alt="Case Study Proof" style="width:100%;height:100%;object-fit:cover;display:block"></div><p style="color:var(--mut)">Verified deliverables, high-converting creative testing, and strategic architecture.</p><button id="cx" data-cur="CLOSE">Close ✕</button></div></div>
+<div class="case" id="case" data-lenis-prevent role="dialog" aria-modal="true"><div><button type="button" class="case-close-top" id="cxTop" aria-label="Close modal">✕</button><span class="lbl" id="cm"></span><h2 id="ct2"></h2><div class="big" id="cr"></div><div id="cimg-wrap" style="margin:1.5rem 0;border-radius:8px;overflow:hidden;max-height:55vh;border:1px solid var(--line);background:#0d0d10"><img id="cimg" src="" alt="Case Study Proof" style="width:100%;height:100%;max-height:55vh;object-fit:contain;display:block"></div><p style="color:var(--mut);line-height:1.6">Verified deliverables, high-converting creative testing, and strategic architecture.</p><button class="case-bottom-close" id="cx" data-cur="CLOSE" type="button">Close ✕</button></div></div>
 
-<div id="formModal" aria-hidden="true" role="dialog" aria-modal="true">
+<div id="formModal" data-lenis-prevent aria-hidden="true" role="dialog" aria-modal="true">
 <div class="f-box">
 <button type="button" class="f-close" id="fClose" aria-label="Close modal">✕</button>
 <div class="f-head">
@@ -475,7 +481,7 @@ em{font-style:italic;color:var(--ac)}
 <div class="cert-grid" id="certGrid"></div>
 </section>
 
-<div class="case" id="certModal"><div><span class="lbl" id="cmo"></span><h2 id="cmt"></h2><div class="big" id="cmi"></div><div id="cmd-img-wrap" style="display:none;margin:1.2rem 0;border-radius:8px;overflow:hidden;max-height:45vh;border:1px solid var(--line);background:#0d0d10"><img id="cmd-img" src="" alt="Certificate Proof" style="width:100%;height:100%;object-fit:contain;display:block"></div><div id="cmd-wrap" style="margin:1.5rem 0;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid var(--line);padding:22px;text-align:left"><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font:11px var(--m);color:var(--mut);margin-bottom:12px;border-bottom:1px solid var(--line);padding-bottom:12px"><div>VERIFICATION: <b style="color:#4ade80">AUTHENTICATED &amp; ACTIVE</b></div><div>ISSUED: <span id="cmd-date" style="color:var(--fg)"></span></div></div><p id="cmd-desc" style="color:var(--mut);font:400 14px/1.7 var(--s);margin-bottom:14px"></p><div id="cmd-tags" style="display:flex;flex-wrap:wrap;gap:8px"></div></div><button id="cmx" data-cur="CLOSE" type="button">Close ✕</button></div></div>
+<div class="case" id="certModal" data-lenis-prevent role="dialog" aria-modal="true"><div><button type="button" class="case-close-top" id="cmxTop" aria-label="Close modal">✕</button><span class="lbl" id="cmo"></span><h2 id="cmt"></h2><div class="big" id="cmi"></div><div id="cmd-img-wrap" style="display:none;margin:1.2rem 0;border-radius:8px;overflow:hidden;max-height:55vh;border:1px solid var(--line);background:#0d0d10"><img id="cmd-img" src="" alt="Certificate Proof" style="width:100%;height:100%;max-height:55vh;object-fit:contain;display:block"></div><div id="cmd-wrap" style="margin:1.5rem 0;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid var(--line);padding:22px;text-align:left"><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font:11px var(--m);color:var(--mut);margin-bottom:12px;border-bottom:1px solid var(--line);padding-bottom:12px"><div>VERIFICATION: <b style="color:#4ade80">AUTHENTICATED &amp; ACTIVE</b></div><div>ISSUED: <span id="cmd-date" style="color:var(--fg)"></span></div></div><p id="cmd-desc" style="color:var(--mut);font:400 14px/1.7 var(--s);margin-bottom:14px"></p><div id="cmd-tags" style="display:flex;flex-wrap:wrap;gap:8px"></div></div><button class="case-bottom-close" id="cmx" data-cur="CLOSE" type="button">Close ✕</button></div></div>
 
 <section class="faq-sec" id="faqs">
 <div class="faq-grid">
@@ -536,13 +542,63 @@ em{font-style:italic;color:var(--ac)}
 <script>
 const $=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelectorAll(s)];
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const unlockScroll=()=>{
+document.body.classList.remove("lock");
+if(window.lenis) lenis.start();
+};
+
+const lockScroll=()=>{
+document.body.classList.add("lock");
+if(window.lenis) lenis.stop();
+};
+
+const closeCaseModal=()=>{
+const m=$("#case");
+if(m){
+m.classList.remove("open");
+m.setAttribute("aria-hidden","true");
+}
+unlockScroll();
+};
+
+const closeCertModal=()=>{
+const m=$("#certModal");
+if(m){
+m.classList.remove("open");
+m.setAttribute("aria-hidden","true");
+}
+unlockScroll();
+};
+
+const openCaseModal=()=>{
+const m=$("#case");
+if(!m)return;
+m.classList.add("open");
+m.setAttribute("aria-hidden","false");
+m.scrollTop=0;
+lockScroll();
+};
+
+const openCertModal=()=>{
+const m=$("#certModal");
+if(!m)return;
+m.classList.add("open");
+m.setAttribute("aria-hidden","false");
+m.scrollTop=0;
+lockScroll();
+};
+
 const P=[
 {c:"ux",t:"Fintech Onboarding Redesign",m:"UI/UX · 2025",r:"+38% activation",img:"work_1_fintech.jpg"},
 {c:"ads",t:"D2C Skincare Scale-up",m:"Meta Ads · 2025",r:"5.1x ROAS",img:"work_2_skincare.jpg"},
 {c:"video",t:"Brand Launch Film",m:"Video · 2025",r:"1.2M views",img:"work_3_film.jpg"}];
 const tr=$("#track");
-P.forEach((p,i)=>{const a=document.createElement("article");a.className="card";a.dataset.c=p.c;a.dataset.cur="VIEW";a.innerHTML=`<div class="vis"><img src="${p.img}" alt="${p.t}" class="vis-img" onerror="this.style.display='none'"><div class="vis-over"></div><span>0${i+1}</span><div class="vis-pill">${p.r}</div></div><h4>${p.t}</h4><p>${p.m}</p>`;a.onclick=()=>{$("#cm").textContent=p.m;$("#ct2").textContent=p.t;$("#cr").textContent=p.r;$("#cimg").src=p.img;$("#case").classList.add("open")};tr.append(a)});
-$("#cx").onclick=()=>$("#case").classList.remove("open");
+P.forEach((p,i)=>{const a=document.createElement("article");a.className="card";a.dataset.c=p.c;a.dataset.cur="VIEW";a.innerHTML=`<div class="vis"><img src="${p.img}" alt="${p.t}" class="vis-img" onerror="this.style.display='none'"><div class="vis-over"></div><span>0${i+1}</span><div class="vis-pill">${p.r}</div></div><h4>${p.t}</h4><p>${p.m}</p>`;a.onclick=()=>{$("#cm").textContent=p.m;$("#ct2").textContent=p.t;$("#cr").textContent=p.r;$("#cimg").src=p.img;openCaseModal()};tr.append(a)});
+
+$("#cx")?.addEventListener("click",closeCaseModal);
+$("#cxTop")?.addEventListener("click",closeCaseModal);
+$("#case")?.addEventListener("click",e=>{if(e.target===$("#case"))closeCaseModal()});
 
 // Certificates data & interactive handlers
 const CERTS=[
@@ -625,23 +681,17 @@ imgWrap.style.display="block";
 imgWrap.style.display="none";
 }
 }
-$("#certModal").classList.add("open");
-document.body.classList.add("lock");
+openCertModal();
 };
 cGrid.append(card);
 });
 }
 
-$("#cmx").onclick=()=>{
-$("#certModal").classList.remove("open");
-document.body.classList.remove("lock");
-};
-$("#certModal").onclick=e=>{
-if(e.target===$("#certModal")){
-$("#certModal").classList.remove("open");
-document.body.classList.remove("lock");
-}
-};
+$("#cmx")?.addEventListener("click",closeCertModal);
+$("#cmxTop")?.addEventListener("click",closeCertModal);
+$("#certModal")?.addEventListener("click",e=>{
+if(e.target===$("#certModal")) closeCertModal();
+});
 
 $$("#certFilters button").forEach(btn=>{
 btn.onclick=()=>{
@@ -659,12 +709,27 @@ if(window.ScrollTrigger)ScrollTrigger.refresh();
 });
 
 const fModal=$("#formModal");
-const openFModal=()=>{fModal.classList.add("open");fModal.setAttribute("aria-hidden","false");document.body.classList.add("lock");setTimeout(()=>$("#fName").focus(),150)};
-const closeFModal=()=>{fModal.classList.remove("open");fModal.setAttribute("aria-hidden","true");document.body.classList.remove("lock")};
+const openFModal=()=>{
+fModal.classList.add("open");
+fModal.setAttribute("aria-hidden","false");
+lockScroll();
+setTimeout(()=>$("#fName").focus(),150);
+};
+const closeFModal=()=>{
+fModal.classList.remove("open");
+fModal.setAttribute("aria-hidden","true");
+unlockScroll();
+};
 $("#btnStartProject").onclick=e=>{e.preventDefault();openFModal()};
 $("#fClose").onclick=closeFModal;
 fModal.onclick=e=>{if(e.target===fModal)closeFModal()};
-addEventListener("keydown",e=>{if(e.key==="Escape"){closeFModal();$("#case").classList.remove("open");$("#certModal").classList.remove("open")}});
+addEventListener("keydown",e=>{
+if(e.key==="Escape"){
+closeCaseModal();
+closeCertModal();
+closeFModal();
+}
+});
 
 $("#projectForm").onsubmit=e=>{
 e.preventDefault();
@@ -862,8 +927,7 @@ $("#ct2").textContent="Facebook Ads Mastery";
 $("#cr").textContent="Certified";
 $("#cimg").src="certificate_facebook_ads.png";
 $("#cimg").alt="CareerMize Facebook Ads Mastery Certificate - Princepreet Singh";
-$("#case").classList.add("open");
-document.body.classList.add("lock");
+openCaseModal();
 };
 $("#a2CertBadge")?.addEventListener("click",openMetaCertModal);
 $("#a2CertFrame")?.addEventListener("click",openMetaCertModal);
@@ -906,7 +970,23 @@ $("#mt").innerHTML=[...Q,...Q].map(q=>{const[a,b]=q.split("|");return`<div class
 $("#wv").innerHTML=Array.from({length:40},(_,i)=>`<i style="height:${20+Math.abs(Math.sin(i*1.7))*70}%;animation-delay:${(i%7)*.12}s"></i>`).join("");
 const sc=$("#scrub");sc.innerHTML=sc.textContent.split(" ").map(w=>`<span class="w">${w}</span>`).join(" ");
 $("#mb").onclick=()=>$("#menu").classList.toggle("open");
-$$("#menu a,#nav a[href^='#'],.lks a[href^='#']").forEach(a=>a.addEventListener("click",e=>{const h=a.getAttribute("href");if(h.length<2)return;const t=$(h);if(!t)return;e.preventDefault();$("#menu").classList.remove("open");window.lenis?lenis.scrollTo(t):t.scrollIntoView({behavior:"smooth"})}));
+$$("#menu a,#nav a[href^='#'],.lks a[href^='#']").forEach(a=>a.addEventListener("click",e=>{
+const h=a.getAttribute("href");
+if(h.length<2)return;
+const t=$(h);
+if(!t)return;
+e.preventDefault();
+closeCaseModal();
+closeCertModal();
+closeFModal();
+$("#menu").classList.remove("open");
+if(window.lenis){
+lenis.start();
+lenis.scrollTo(t,{offset:-40});
+}else{
+t.scrollIntoView({behavior:"smooth"});
+}
+}));
 $$(".stats b,.kp b").forEach(b=>{b.dataset.d=b.dataset.v;});
 const fmt=b=>(b.dataset.p||"")+b.dataset.n+(b.dataset.s||"");
 

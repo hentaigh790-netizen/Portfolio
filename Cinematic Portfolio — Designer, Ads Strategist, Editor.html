@@ -195,6 +195,26 @@ em{font-style:italic;color:var(--ac)}
 .cert-id b{color:var(--fg);font-weight:400}
 .cert-btn{display:inline-flex;align-items:center;gap:6px;font:11px var(--m);color:var(--fg);padding:6px 14px;border-radius:99px;border:1px solid var(--line);background:rgba(255,255,255,.03);cursor:pointer;transition:all .2s;letter-spacing:.04em}
 .cert-card:hover .cert-btn{background:var(--ac);border-color:var(--ac);color:#0a0a0b}
+.a2-cert-callout{display:flex;align-items:center;gap:14px;margin-top:1.8rem;padding:12px 16px;background:rgba(255,255,255,.025);border:1px solid var(--line);border-radius:12px;cursor:pointer;transition:all .25s ease;text-decoration:none;color:inherit;max-width:440px}
+.a2-cert-callout:hover{background:rgba(255,255,255,.05);border-color:rgba(242,239,233,.3);transform:translateY(-2px)}
+.a2-cert-thumb{width:64px;height:45px;border-radius:6px;overflow:hidden;border:1px solid var(--line);flex-shrink:0;background:#111}
+.a2-cert-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.a2-cert-info{display:flex;flex-direction:column;gap:2px;flex:1;min-width:0}
+.a2-cert-lbl{font:10px var(--m);color:#4ade80;letter-spacing:.08em;display:flex;align-items:center;gap:6px}
+.a2-cert-info b{font:500 13px var(--s);color:var(--fg);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.a2-cert-info small{font:11px var(--m);color:var(--mut)}
+.a2-cert-arrow{font:11px var(--m);color:var(--ac);padding:4px 10px;border-radius:99px;background:rgba(255,77,28,.1);border:1px solid rgba(255,77,28,.25);transition:all .2s;flex-shrink:0}
+.a2-cert-callout:hover .a2-cert-arrow{background:var(--ac);color:#0a0a0b}
+.a2-panel-metrics{width:100%;height:100%;display:flex;flex-direction:column;gap:14px;justify-content:space-between}
+.a2-panel-cert{width:100%;height:100%;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+.a2-cert-hud{display:flex;justify-content:space-between;align-items:center;font:10px var(--m);color:var(--mut);letter-spacing:.12em;padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:8px}
+.a2-cert-frame{position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer;border-radius:8px;background:#0d0d10;border:1px solid var(--line)}
+.a2-cert-frame img{width:100%;height:100%;object-fit:contain;display:block;transition:transform .4s cubic-bezier(.16,1,.3,1)}
+.a2-cert-frame:hover img{transform:scale(1.02)}
+.a2-cert-overlay{position:absolute;inset:0;background:rgba(10,10,11,.45);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s ease;backdrop-filter:blur(2px)}
+.a2-cert-frame:hover .a2-cert-overlay{opacity:1}
+.a2-cert-zoom-btn{font:11px var(--m);letter-spacing:.08em;padding:9px 18px;border-radius:99px;background:var(--fg);color:#0a0a0b;border:none;font-weight:600;display:inline-flex;align-items:center;gap:6px;box-shadow:0 8px 24px rgba(0,0,0,.6);transform:translateY(4px);transition:transform .2s ease}
+.a2-cert-frame:hover .a2-cert-zoom-btn{transform:translateY(0)}
 .faq-sec{padding:14vh 5vw;border-top:1px solid var(--line)}
 .faq-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:6vw;align-items:start}
 @media(max-width:900px){.faq-grid{grid-template-columns:1fr}}
@@ -295,8 +315,27 @@ em{font-style:italic;color:var(--ac)}
 </div>
 </div></section>
 
-<section class="act" id="a2"><div><span class="lbl"><b>Act II</b> — Meta Ads</span><h3>I drive the <em>audience.</em></h3><p id="a2Desc">Creative testing, funnel structure and scaling playbooks built around profit, not vanity metrics.</p><div class="tags" id="a2Tags"><button type="button" class="tag-btn on" data-act="a2" data-view="meta">Facebook &amp; Instagram</button><button type="button" class="tag-btn" data-act="a2" data-view="creative">Creative strategy</button><button type="button" class="tag-btn" data-act="a2" data-view="tracking">Conversion tracking</button></div></div>
-<div class="art"><div class="kp"><div>ROAS<b data-v="4.8" data-s="x">0</b></div><div>CTR<b data-v="3.2" data-s="%">0</b></div><div>CPA<b data-v="6.4" data-p="$">0</b></div></div><svg class="gr" viewBox="0 0 400 140" preserveAspectRatio="none"><path pathLength="1" d="M0 125 C40 115 60 100 90 92 S150 98 180 72 S250 62 280 42 S350 28 400 10"/></svg><div class="crs"><div class="cr"></div><div class="cr"></div><div class="cr"></div></div></div></section>
+<section class="act" id="a2"><div><span class="lbl"><b>Act II</b> — Meta Ads</span><h3>I drive the <em>audience.</em></h3><p id="a2Desc">Creative testing, funnel structure and scaling playbooks built around profit, not vanity metrics.</p><div class="tags" id="a2Tags"><button type="button" class="tag-btn on" data-act="a2" data-view="meta">Facebook &amp; Instagram</button><button type="button" class="tag-btn" data-act="a2" data-view="creative">Creative strategy</button><button type="button" class="tag-btn" data-act="a2" data-view="tracking">Conversion tracking</button><button type="button" class="tag-btn" data-act="a2" data-view="cert"><i class="cert-dot"></i> Verified Certificate</button></div>
+<div class="a2-cert-callout" id="a2CertBadge" title="Click to inspect verified certificate">
+<div class="a2-cert-thumb"><img src="certificate_facebook_ads.png" alt="CareerMize Facebook Ads Mastery Certificate"></div>
+<div class="a2-cert-info">
+<span class="a2-cert-lbl"><i class="cert-dot"></i> VERIFIED ACCREDITATION</span>
+<b>Facebook Ads Mastery</b>
+<small>CareerMize · Completed 23-Oct-2026</small>
+</div>
+<span class="a2-cert-arrow">View ↗</span>
+</div>
+</div>
+<div class="art" id="a2Art">
+<div class="a2-panel a2-panel-metrics" id="a2Metrics"><div class="kp"><div>ROAS<b data-v="4.8" data-s="x">0</b></div><div>CTR<b data-v="3.2" data-s="%">0</b></div><div>CPA<b data-v="6.4" data-p="$">0</b></div></div><svg class="gr" viewBox="0 0 400 140" preserveAspectRatio="none"><path pathLength="1" d="M0 125 C40 115 60 100 90 92 S150 98 180 72 S250 62 280 42 S350 28 400 10"/></svg><div class="crs"><div class="cr"></div><div class="cr"></div><div class="cr"></div></div></div>
+<div class="a2-panel a2-panel-cert" id="a2CertPanel" style="display:none">
+<div class="a2-cert-hud"><span>CAREERMIZE // ACCREDITED COURSE</span><span class="cert-badge"><i class="cert-dot"></i>VERIFIED · 23-OCT-2026</span></div>
+<div class="a2-cert-frame" id="a2CertFrame" title="Click to view full certificate">
+<img src="certificate_facebook_ads.png" alt="CareerMize Facebook Ads Mastery - Princepreet Singh">
+<div class="a2-cert-overlay"><span class="a2-cert-zoom-btn">Inspect Certificate ↗</span></div>
+</div>
+</div>
+</div></section>
 
 <section class="act" id="a3"><div><span class="lbl"><b>Act III</b> — Video</span><h3>I cut the <em>story.</em></h3><p id="a3Desc">Reels, ads and brand films edited for rhythm, retention and the first three seconds.</p><div class="tags" id="a3Tags"><button type="button" class="tag-btn on" data-act="a3" data-view="short">Short-form</button><button type="button" class="tag-btn" data-act="a3" data-view="color">Motion &amp; color</button><button type="button" class="tag-btn" data-act="a3" data-view="sound">Sound design</button></div></div>
 <div class="art"><div class="tl" id="tl"><div class="tr"><div class="cp" style="left:2%;width:30%;background:#ff4d1c"></div><div class="cp" style="left:34%;width:24%;background:#f2efe9"></div><div class="cp" style="left:60%;width:36%;background:#6b1a05"></div></div><div class="tr"><div class="cp" style="left:10%;width:40%;background:#3a3a40"></div><div class="cp" style="left:52%;width:44%;background:#8a857c"></div></div><div class="tr wv" id="wv"></div><div class="ph" id="ph"></div></div></div></section>
@@ -387,7 +426,7 @@ em{font-style:italic;color:var(--ac)}
 <div class="cert-grid" id="certGrid"></div>
 </section>
 
-<div class="case" id="certModal"><div><span class="lbl" id="cmo"></span><h2 id="cmt"></h2><div class="big" id="cmi"></div><div id="cmd-wrap" style="margin:1.5rem 0;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid var(--line);padding:22px;text-align:left"><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font:11px var(--m);color:var(--mut);margin-bottom:12px;border-bottom:1px solid var(--line);padding-bottom:12px"><div>VERIFICATION: <b style="color:#4ade80">AUTHENTICATED &amp; ACTIVE</b></div><div>ISSUED: <span id="cmd-date" style="color:var(--fg)"></span></div></div><p id="cmd-desc" style="color:var(--mut);font:400 14px/1.7 var(--s);margin-bottom:14px"></p><div id="cmd-tags" style="display:flex;flex-wrap:wrap;gap:8px"></div></div><button id="cmx" data-cur="CLOSE" type="button">Close ✕</button></div></div>
+<div class="case" id="certModal"><div><span class="lbl" id="cmo"></span><h2 id="cmt"></h2><div class="big" id="cmi"></div><div id="cmd-img-wrap" style="display:none;margin:1.2rem 0;border-radius:8px;overflow:hidden;max-height:45vh;border:1px solid var(--line);background:#0d0d10"><img id="cmd-img" src="" alt="Certificate Proof" style="width:100%;height:100%;object-fit:contain;display:block"></div><div id="cmd-wrap" style="margin:1.5rem 0;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid var(--line);padding:22px;text-align:left"><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font:11px var(--m);color:var(--mut);margin-bottom:12px;border-bottom:1px solid var(--line);padding-bottom:12px"><div>VERIFICATION: <b style="color:#4ade80">AUTHENTICATED &amp; ACTIVE</b></div><div>ISSUED: <span id="cmd-date" style="color:var(--fg)"></span></div></div><p id="cmd-desc" style="color:var(--mut);font:400 14px/1.7 var(--s);margin-bottom:14px"></p><div id="cmd-tags" style="display:flex;flex-wrap:wrap;gap:8px"></div></div><button id="cmx" data-cur="CLOSE" type="button">Close ✕</button></div></div>
 
 <section class="faq-sec" id="faqs">
 <div class="faq-grid">
@@ -460,12 +499,13 @@ $("#cx").onclick=()=>$("#case").classList.remove("open");
 const CERTS=[
 {
 c:"ads",
-org:"Meta Blueprint",
-title:"Meta Certified Media Buying & Strategy Professional",
-id:"META-BP-748921-MB",
-date:"2024 · Verified",
-desc:"Comprehensive accreditation in performance marketing across Facebook & Instagram algorithms, Conversion API (CAPI) server attribution, dynamic creative testing, and ROAS scaling.",
-tags:["CAPI Attribution","Advantage+ Scaling","Dynamic Creative Testing","ROAS Optimization","Event Matching 9.4/10"]
+org:"CareerMize",
+title:"Facebook Ads Mastery",
+id:"CM-FB-2026-8491",
+date:"23-Oct-2026 · Verified",
+desc:"Comprehensive accreditation for successfully completing Facebook Ads Mastery at CareerMize, validating conversion campaign architectures, audience targeting, ROAS scaling, and performance metrics.",
+tags:["Facebook Ads Mastery","Campaign Funnels","CAPI & Tracking","ROAS Scaling","Targeting & Creative"],
+img:"certificate_facebook_ads.png"
 },
 {
 c:"ux",
@@ -525,6 +565,17 @@ $("#cmi").textContent=c.id;
 $("#cmd-date").textContent=c.date;
 $("#cmd-desc").textContent=c.desc;
 $("#cmd-tags").innerHTML=c.tags.map(t=>`<span class="cert-pill" style="color:var(--fg);background:rgba(255,255,255,.07)">${t}</span>`).join("");
+const imgWrap=$("#cmd-img-wrap");
+const imgEl=$("#cmd-img");
+if(imgWrap&&imgEl){
+if(c.img){
+imgEl.src=c.img;
+imgEl.alt=c.title;
+imgWrap.style.display="block";
+}else{
+imgWrap.style.display="none";
+}
+}
 $("#certModal").classList.add("open");
 document.body.classList.add("lock");
 };
@@ -686,7 +737,7 @@ gsap.fromTo("#protoPreview",{scale:0.97},{scale:1,duration:0.25,ease:"back.out(2
 };
 }
 
-// Act II Tag Switcher (Facebook & Instagram / Creative strategy / Conversion tracking)
+// Act II Tag Switcher (Facebook & Instagram / Creative strategy / Conversion tracking / Verified Certificate)
 const a2Views={
 meta:{
 desc:"Creative testing, funnel structure and scaling playbooks built around profit, not vanity metrics.",
@@ -711,6 +762,10 @@ kps:[
 {label:"ATTRIB",val:"100",suf:"%"},
 {label:"EVENTS",val:"8",suf:"x"}
 ]
+},
+cert:{
+desc:"Formally certified in Facebook Ads Mastery by CareerMize (issued 23-Oct-2026). Validated in high-converting campaign funnels, creative testing, and scaling ROI.",
+isCert:true
 }
 };
 
@@ -729,6 +784,14 @@ gsap.to(desc,{opacity:1,y:0,duration:0.25});
 }});
 }
 
+if(view==="cert"){
+$("#a2Metrics").style.display="none";
+$("#a2CertPanel").style.display="flex";
+gsap.fromTo("#a2CertPanel",{opacity:0,scale:0.96},{opacity:1,scale:1,duration:0.35,ease:"power2.out"});
+}else{
+$("#a2CertPanel").style.display="none";
+$("#a2Metrics").style.display="flex";
+if(data.kps){
 const kps=$$("#a2 .kp div");
 data.kps.forEach((k,idx)=>{
 if(kps[idx]){
@@ -736,11 +799,25 @@ kps[idx].innerHTML=`${k.label}<b>${k.pref||""}${k.val}${k.suf||""}</b>`;
 gsap.from(kps[idx].querySelector("b"),{scale:0.85,opacity:0.6,duration:0.3});
 }
 });
-
 gsap.fromTo("#a2 .gr path",{strokeDashoffset:1},{strokeDashoffset:0,duration:0.6,ease:"power2.out"});
 gsap.fromTo("#a2 .cr",{rotationY:90,opacity:0},{rotationY:0,opacity:1,stagger:0.1,duration:0.5});
+}
+}
 };
 });
+
+// Act II Certificate modal triggers
+const openMetaCertModal=()=>{
+$("#cm").textContent="CAREERMIZE // VERIFIED ACCREDITATION";
+$("#ct2").textContent="Facebook Ads Mastery";
+$("#cr").textContent="Certified";
+$("#cimg").src="certificate_facebook_ads.png";
+$("#cimg").alt="CareerMize Facebook Ads Mastery Certificate - Princepreet Singh";
+$("#case").classList.add("open");
+document.body.classList.add("lock");
+};
+$("#a2CertBadge")?.addEventListener("click",openMetaCertModal);
+$("#a2CertFrame")?.addEventListener("click",openMetaCertModal);
 
 // Act III Tag Switcher (Short-form / Motion & color / Sound design)
 const a3Views={
